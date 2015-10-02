@@ -28,7 +28,7 @@ AllFields:
     - isbn
     - variant_isbn_isn_mv
     - issn
-    - localcode                     # local codes (field 909)
+    - localcode_isn_mv                     # local codes (field 909)
     - id
   DismaxParams:
     - [pf, 'title_short^1000']
@@ -80,7 +80,7 @@ AllFields:
       - [and, 125]
     fulltext:
       - [or, ~]
-    localcode:
+    localcode_isn_mv:
       - [and, ~]
 
 Author:
@@ -172,9 +172,9 @@ FRBR:
 
 WLC:
   DismaxFields:
-    - localcode
+    - localcode_isn_mv
   QueryFields:
-    localcode:
+    localcode_isn_mv:
       - [onephrase, ~]
 
 WNEL:
