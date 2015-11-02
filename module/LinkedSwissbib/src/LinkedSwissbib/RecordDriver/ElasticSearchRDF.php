@@ -58,8 +58,12 @@ class ElasticSearchRDF extends AbstractBase {
     {
 
         $rdfGraph = new \EasyRdf_Graph();
-        $rdfGraph->parse(json_encode($this->fields['_source']),'jsonld');
-        return $rdfGraph->serialise($rdfType);
+        try {
+            $rdfGraph->parse(json_encode($this->fields['_source']), 'jsonld');
+            return $rdfGraph->serialise($rdfType);
+        } catch (\Exception $ex) {
+            return "";
+        }
 
     }
 
