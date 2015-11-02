@@ -10,7 +10,7 @@ AllFields:
     - bibliographicResource
     - document
   UsedIndex:
-    - testsb3
+    - testsb
   query:
     bool:
       should:
