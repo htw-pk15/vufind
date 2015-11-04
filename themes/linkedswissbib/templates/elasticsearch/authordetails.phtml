@@ -84,16 +84,22 @@
             <img src="../themes/linkedswissbib/images/JohannWolfgangVonGoethe.jpg" alt="Johann Wolfgang von Goethe">
         </div>
         <div id="personAuthorDescription">
-                <?
-                $results = $this->results->getResults();
+            <?
+            $results = $this->results->getResults();
+            if (count($results) < 2) {
                 foreach ($results as $rdfDriver): ?>
                     <div id="resultView">
-                       <h2>
-                        <?=  preg_replace(['/</','/>/'], ['&lt;','&gt;'], $rdfDriver->getFirstName()); ?>
-                        <?=  preg_replace(['/</','/>/'], ['&lt;','&gt;'], $rdfDriver->getLastName()); ?>
-                       </h2>
+                        <h2>
+                            <?=  preg_replace(['/</','/>/'], ['&lt;','&gt;'], $rdfDriver->getFirstName()); ?>
+                            <?=  preg_replace(['/</','/>/'], ['&lt;','&gt;'], $rdfDriver->getLastName()); ?>
+                        </h2>
                     </div>
-                <?endforeach;?>
+                <?endforeach;
+            } else { ?>
+                <div id="resultView">
+                    <h2>Johann Wolfgang von Goethe</h2>
+                </div>
+            <? }; ?>
             Schriftsteller, Publizist, Politiker, Jurist, Naturwissenschaftler, Theaterintendant, Maler, Zeichner<br /><br />
             <p>Geboren: 28. August 1749, Frankfurt am Main<br />
                 Gestorben; 22. März 1832, Weimar
