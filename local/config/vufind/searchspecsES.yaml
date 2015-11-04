@@ -46,7 +46,7 @@ AllFields:
 
 Contributor:
   UsedTypes:
-    - bibliographicResource
+    - person
   UsedIndex:
     - testsb
   query:
@@ -57,7 +57,9 @@ Contributor:
 #      query:
       multi_match:
         fields:
-          - dct:BibliographicResource.dc:contributor.@id
+#          - foaf:firstName
+#          - foaf:lastName
+          - @id
 #          - dct:BibliographicResource.dc:contributor.foaf:firstName
 #          - dct:BibliographicResource.dct:title
         type:

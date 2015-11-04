@@ -38,6 +38,8 @@ allen Katalogen | NEBIS | IDS Basel Bern | ID Luzern | RERO | Alexandria
         </div>
         <div id="resultView">
             <?=  preg_replace(['/</','/>/'], ['&lt;','&gt;'], $rdfDriver->getRdf()); ?>
+            <?=  preg_replace(['/</','/>/'], ['&lt;','&gt;'], $rdfDriver->getFirstName()); ?>
+            <?=  preg_replace(['/</','/>/'], ['&lt;','&gt;'], $rdfDriver->getLastName()); ?>
         </div>
             <div>&nbsp;</div>
     <?endforeach;?>
