@@ -86,12 +86,12 @@
         <div id="personAuthorDescription">
             <?
             $results = $this->results->getResults();
-            if (count($results) < 2) {
+            if (count($results) == 1) {
                 foreach ($results as $rdfDriver): ?>
                     <div id="resultView">
                         <h2>
-                            <?=  preg_replace(['/</','/>/'], ['&lt;','&gt;'], $rdfDriver->getFirstName()); ?>
-                            <?=  preg_replace(['/</','/>/'], ['&lt;','&gt;'], $rdfDriver->getLastName()); ?>
+                            <?=  preg_replace(['/</','/>/'], ['&lt;','&gt;'], $rdfDriver->getFirstNameContributor()); ?>
+                            <?=  preg_replace(['/</','/>/'], ['&lt;','&gt;'], $rdfDriver->getLastNameContributor()); ?>
                         </h2>
                     </div>
                 <?endforeach;

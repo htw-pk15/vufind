@@ -93,13 +93,50 @@ class ElasticSearchRDF extends AbstractBase {
 
     }
 
-    public function getFirstName()
+    public function getFirstNameContributor()
     {
         return $this->fields['_source']['foaf:firstName'];
     }
 
-    public function getLastName()
+    public function getLastNameContributor()
     {
         return $this->fields['_source']['foaf:lastName'];
+    }
+
+/*    public function getFirstNameTest()
+    {
+        if (isset($this->fields['_source']['dc:contributor']['foaf:Person']['foaf:firstName']))
+        {
+            return is_array($this->fields['_source']['dc:contributor']) ? array_values($this->fields['_source']['dc:contributor']) :
+                [$this->fields['_source']['dc:contributor.foaf:Person.foaf:firstName']];
+        } else {
+            echo "Fehler";
+        }
+
+    }*/
+
+    public function getFirstNameResources()
+    {
+        return $this->fields['_source']['dc:contributor']['foaf:Person']['foaf:firstName'];
+    }
+
+    public function getLastNameResources()
+    {
+        return $this->fields['_source']['dc:contributor']['foaf:Person']['foaf:lastName'];
+    }
+
+    public function getPublicationStatement()
+    {
+        return $this->fields['_source']['rdau:publicationStatement.en'];
+    }
+
+    public function getFormat()
+    {
+        return $this->fields['_source']['dc:format'];
+    }
+
+    public function getTitle()
+    {
+        return $this->fields['_source']['dct:title'];
     }
 }

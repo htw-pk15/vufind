@@ -57,15 +57,27 @@ Contributor:
 #      query:
       multi_match:
         fields:
-#          - foaf:firstName
-#          - foaf:lastName
           - @id
-#          - dct:BibliographicResource.dc:contributor.foaf:firstName
-#          - dct:BibliographicResource.dct:title
         type:
           - cross_fields #should be default
         operator:
           - and # should be default
 
-
-
+Resources:
+  UsedTypes:
+    - bibliographicResource
+  UsedIndex:
+    - testsb
+  query:
+    #todo think about a mechanism to reference already defined queries
+#    nested:
+#      path:
+#        - dct:BibliographicResource.dc:contributor
+#      query:
+      multi_match:
+        fields:
+          - dc:contributor.foaf:Person.@id
+        type:
+          - cross_fields #should be default
+        operator:
+          - and # should be default
