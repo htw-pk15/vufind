@@ -38,7 +38,12 @@ allen Katalogen | NEBIS | IDS Basel Bern | ID Luzern | RERO | Alexandria
                 <b>Verfasser, Beitragende:</b> &nbsp;<?=  preg_replace(['/</','/>/'], ['&lt;','&gt;'], $rdfDriver->getFirstNameResources()); ?>
                 <?=  preg_replace(['/</','/>/'], ['&lt;','&gt;'], $rdfDriver->getLastNameResources()); ?><br />
                 <b>Ort, Verlag, Jahr:</b> &nbsp; <?=  preg_replace(['/</','/>/'], ['&lt;','&gt;'], $rdfDriver->getPublicationStatement()); ?><br />
-                <b>Beschreibung:</b> &nbsp; <?=  preg_replace(['/</','/>/'], ['&lt;','&gt;'], $rdfDriver->getFormat()); ?>
+                <b>Beschreibung:</b> &nbsp; <?=  preg_replace(['/</','/>/'], ['&lt;','&gt;'], $rdfDriver->getFormat()); ?><br />
+                <b>Link Cover (ID):</b> &nbsp; <a rel="external" href="<?=  preg_replace(['/</','/>/'], ['&lt;','&gt;'], $rdfDriver->getCover()); ?>">
+                <?=  preg_replace(['/</','/>/'], ['&lt;','&gt;'], $rdfDriver->getCover()); ?></a><br />
+                <b>Link Cover (ISBN10):</b> &nbsp; <a rel="external" href="<?=  preg_replace(['/</','/>/'], ['&lt;','&gt;'], $rdfDriver->getISBN10()); ?>">
+                <?=  preg_replace(['/</','/>/'], ['&lt;','&gt;'], $rdfDriver->getISBN10()); ?></a><br />
+                <img src="<?=  preg_replace(['/</','/>/'], ['&lt;','&gt;'], $rdfDriver->getISBN10()); ?>">
             </p>
             <br />
         </div>

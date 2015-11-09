@@ -139,4 +139,29 @@ class ElasticSearchRDF extends AbstractBase {
     {
         return $this->fields['_source']['dct:title'];
     }
+
+    public function getCover()
+    {
+       $about = $this->fields['_source']['rdfs:isDefinedBy']['@id'];
+       $id = substr($about, 33, 9);
+       $url_start = 'https://resources.swissbib.ch/Cover/Show?isn=';
+       $url_end = '&size=small';
+       $link_cover = $url_start.$id.$url_end;
+       return $link_cover;
+    }
+
+    public function getISBN10()
+    {
+       if (isset($this->fields['_source']['bibo:isbn10']))
+           {
+            $isbn10 = $this->fields['_source']['bibo:isbn10'];
+            $url_start = 'https://resources.swissbib.ch/Cover/Show?isn=';
+            $url_end = '&size=small';
+            $link_cover = $url_start.$isbn10.$url_end;
+            return $link_cover;
+    } else {
+            echo "-";
+        }
+    }
+
 }
