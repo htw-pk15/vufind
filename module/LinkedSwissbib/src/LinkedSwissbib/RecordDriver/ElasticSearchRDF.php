@@ -127,7 +127,7 @@ class ElasticSearchRDF extends AbstractBase {
 
     public function getPublicationStatement()
     {
-        return $this->fields['_source']['rdau:publicationStatement.en'];
+        return $this->fields['_source']['rdau:publicationStatement'];
     }
 
     public function getFormat()
