@@ -8,6 +8,20 @@ hello
     <img src="../themes/linkedswissbib/images/JudithKuckart_Wuensche.jpg" alt="Wuensche">&nbsp;<br />
 </p>
 
-2. versuech
-
-3. versuech philippe
+<div id="personAuthorDescription">
+    <?
+    $results = $this->results->getResults();
+    if (count($results) == 1) {
+        foreach ($results as $rdfDriver): ?>
+            <div id="resultView">
+                <h2>
+                    <?=  preg_replace(['/</','/>/'], ['&lt;','&gt;'], $rdfDriver->getFirstNameContributor()); ?>
+                    <?=  preg_replace(['/</','/>/'], ['&lt;','&gt;'], $rdfDriver->getLastNameContributor()); ?>
+                </h2>
+            </div>
+        <?endforeach;
+    } else { ?>
+    <div id="resultView">
+        <h2>Johann Wolfgang von Goethe</h2>
+    </div>
+<? }; ?>
