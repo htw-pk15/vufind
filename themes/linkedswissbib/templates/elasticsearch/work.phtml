@@ -1,0 +1,27 @@
+hello
+<p>
+    <img src="../themes/linkedswissbib/images/JudithKuckart_DerBibliothekar.jpg" alt="Der Bibliothekar">&nbsp;
+    <img src="../themes/linkedswissbib/images/JudithKuckart_DieVerdächtige.jpg" alt="Die Verdächtige">&nbsp;
+    <img src="../themes/linkedswissbib/images/JudithKuckart_Kaiserstrasse.jpg" alt="Kaiserstrasse">&nbsp;
+    <img src="../themes/linkedswissbib/images/JudithKuckart_LenasLiebe.jpg" alt="Lenas Liebe">&nbsp;
+    <img src="../themes/linkedswissbib/images/JudithKuckart_WahlDerWaffen.jpg" alt="Wahl der Waffen">&nbsp;
+    <img src="../themes/linkedswissbib/images/JudithKuckart_Wuensche.jpg" alt="Wuensche">&nbsp;<br />
+</p>
+
+<div id="personAuthorDescription">
+    <?
+    $results = $this->results->getResults();
+    if (count($results) == 1) {
+        foreach ($results as $rdfDriver): ?>
+            <div id="resultView">
+                <h2>
+                    <?=  preg_replace(['/</','/>/'], ['&lt;','&gt;'], $rdfDriver->getFirstNameContributor()); ?>
+                    <?=  preg_replace(['/</','/>/'], ['&lt;','&gt;'], $rdfDriver->getLastNameContributor()); ?>
+                </h2>
+            </div>
+        <?endforeach;
+    } else { ?>
+    <div id="resultView">
+        <h2>Johann Wolfgang von Blub</h2>
+    </div>
+<? }; ?>
