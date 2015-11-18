@@ -103,19 +103,40 @@ class ElasticSearchRDF extends AbstractBase {
         return $this->fields['_source']['foaf:lastName'];
     }
 
-/*    public function getFirstNameTest()
+    public function getName()
     {
-        if (isset($this->fields['_source']['dc:contributor']['foaf:Person']['foaf:firstName']))
-        {
-            return is_array($this->fields['_source']['dc:contributor']) ? array_values($this->fields['_source']['dc:contributor']) :
-                [$this->fields['_source']['dc:contributor.foaf:Person.foaf:firstName']];
+        $array = $this->fields['_source']['dc:contributor']['foaf:Person'];
+
+        if (isset($this->fields['_source']['dc:contributor']['foaf:Person']['foaf:firstName']) || isset($this->fields['_source']['dc:contributor']['foaf:Person']['foaf:lastName'])) {
+            foreach ($array as $key => $item) {
+                if ($key == 'foaf:firstName' ) {
+                    echo $item . " ";
+                }
+            }
+            foreach ($array as $key => $item) {
+                if ($key == 'foaf:lastName' ) {
+                    echo $item;
+                }
+            }
         } else {
-            echo "Fehler";
+            for ($i = 0; $i <= count($array); $i++) {
+                foreach ($array[$i] as $key => $item1) {
+                    if ($key == 'foaf:firstName' ) {
+                        echo $item1 . " ";
+                    }
+                }
+                foreach ($array[$i] as $key => $item2) {
+                    if ($key == 'foaf:lastName' ) {
+                        echo $item2 . "; ";
+                    }
+                }
+            }
         }
+    }
 
-    }*/
 
-    public function getFirstNameResources()
+
+/*    public function getFirstNameResources()
     {
         return $this->fields['_source']['dc:contributor']['foaf:Person']['foaf:firstName'];
     }
@@ -123,7 +144,7 @@ class ElasticSearchRDF extends AbstractBase {
     public function getLastNameResources()
     {
         return $this->fields['_source']['dc:contributor']['foaf:Person']['foaf:lastName'];
-    }
+    }*/
 
     public function getPublicationStatement()
     {
@@ -140,6 +161,11 @@ class ElasticSearchRDF extends AbstractBase {
         return $this->fields['_source']['dct:title'];
     }
 
+    public function getType()
+    {
+        return $this->fields['_source']['rdf:type']["@id"];
+    }
+
     public function getCover()
     {
        $about = $this->fields['_source']['rdfs:isDefinedBy']['@id'];
@@ -152,14 +178,16 @@ class ElasticSearchRDF extends AbstractBase {
 
     public function getISBN10()
     {
-       if (isset($this->fields['_source']['bibo:isbn10']))
-           {
+        if (isset($this->fields['_source']['bibo:isbn10']))
+        {
             $isbn10 = $this->fields['_source']['bibo:isbn10'];
             $url_start = 'https://resources.swissbib.ch/Cover/Show?isn=';
             $url_end = '&size=small';
             $link_cover = $url_start.$isbn10.$url_end;
             return $link_cover;
-    } else {
+        } elseif ($this->fields['_source']['rdf:type']['@id'] == "http://purl.org/ontology/bibo/Article") {
+            echo "../themes/linkedswissbib/images/icon_article.png";
+        } else {
             echo "-";
         }
     }
