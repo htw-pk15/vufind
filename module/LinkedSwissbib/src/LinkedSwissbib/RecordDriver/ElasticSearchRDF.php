@@ -110,28 +110,33 @@ class ElasticSearchRDF extends AbstractBase {
         if (isset($this->fields['_source']['dc:contributor']['foaf:Person']['foaf:firstName']) || isset($this->fields['_source']['dc:contributor']['foaf:Person']['foaf:lastName'])) {
             foreach ($array as $key => $item) {
                 if ($key == 'foaf:firstName' ) {
-                    echo $item . " ";
+                    $firstName = $item . " ";
                 }
             }
             foreach ($array as $key => $item) {
                 if ($key == 'foaf:lastName' ) {
-                    echo $item;
+                    $lastName = $item;
                 }
             }
+            return $firstName . " " . $lastName;
         } else {
             for ($i = 0; $i <= count($array); $i++) {
+                array_push($a);
+
                 foreach ($array[$i] as $key => $item1) {
                     if ($key == 'foaf:firstName' ) {
-                        echo $item1 . " ";
+                        $name .= $firsName = $item1 . " ";
                     }
                 }
                 foreach ($array[$i] as $key => $item2) {
                     if ($key == 'foaf:lastName' ) {
-                        echo $item2 . "; ";
+                        $name .= $lastName = $item2 . "; ";
                     }
                 }
             }
         }
+        $name = rtrim($name, "; ");
+        return $name;
     }
 
 
@@ -186,7 +191,7 @@ class ElasticSearchRDF extends AbstractBase {
             $link_cover = $url_start.$isbn10.$url_end;
             return $link_cover;
         } elseif ($this->fields['_source']['rdf:type']['@id'] == "http://purl.org/ontology/bibo/Article") {
-            echo "../themes/linkedswissbib/images/icon_article.png";
+            return "../themes/linkedswissbib/images/icon_article.png";
         } else {
             echo "-";
         }
