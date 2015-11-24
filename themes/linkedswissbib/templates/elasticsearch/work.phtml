@@ -1,27 +1,851 @@
-hello
-<p>
-    <img src="../themes/linkedswissbib/images/JudithKuckart_DerBibliothekar.jpg" alt="Der Bibliothekar">&nbsp;
-    <img src="../themes/linkedswissbib/images/JudithKuckart_DieVerdächtige.jpg" alt="Die Verdächtige">&nbsp;
-    <img src="../themes/linkedswissbib/images/JudithKuckart_Kaiserstrasse.jpg" alt="Kaiserstrasse">&nbsp;
-    <img src="../themes/linkedswissbib/images/JudithKuckart_LenasLiebe.jpg" alt="Lenas Liebe">&nbsp;
-    <img src="../themes/linkedswissbib/images/JudithKuckart_WahlDerWaffen.jpg" alt="Wahl der Waffen">&nbsp;
-    <img src="../themes/linkedswissbib/images/JudithKuckart_Wuensche.jpg" alt="Wuensche">&nbsp;<br />
-</p>
+<div id="allWrapper">
 
-<div id="personAuthorDescription">
-    <?
-    $results = $this->results->getResults();
-    if (count($results) == 1) {
-        foreach ($results as $rdfDriver): ?>
-            <div id="resultView">
-                <h2>
-                    <?=  preg_replace(['/</','/>/'], ['&lt;','&gt;'], $rdfDriver->getFirstNameContributor()); ?>
-                    <?=  preg_replace(['/</','/>/'], ['&lt;','&gt;'], $rdfDriver->getLastNameContributor()); ?>
-                </h2>
-            </div>
-        <?endforeach;
-    } else { ?>
-    <div id="resultView">
-        <h2>Johann Wolfgang von Blub</h2>
+    <div id="personSidebar">
+        <div id="workSidebarContent">
+            <h4>Dieses Werk in externen Katalogen:</h4> <!-- Inhalt noch von authordetails! -->
+            <ul>
+                <li class="externalLink">
+                    <a rel="external" href="http://data.bnf.fr/11905269" target="_blank">
+                        <i class="externalIcon">
+                            <img class="externalLink" alt="" src="http://www.bnf.fr/bnf_dev/icono/favicon.ico">
+                        </i>
+                        <span class ="externalLink">Bibliothèque nationale de France (Frankreich)</span>
+                    </a>
+                </li>
+                <li class="externalLink">
+                    <a rel="external" href="http://id.loc.gov/authorities/names/n79003362" target="_blank">
+                        <i class="externalIcon">
+                            <img class="externalLink" alt="" src="http://www.loc.gov/favicon.ico">
+                        </i>
+                        <span class ="externalLink">Library of Congress (USA)</span>
+                    </a>
+                </li>
+                <li class="externalLink">
+                    <a rel="external" href="https://www.deutsche-digitale-bibliothek.de/entity/118540238" target="_blank">
+                        <i class="dummyIcon">
+                            <img class="externalLink" alt="" src="../themes/linkedswissbib/images/dummyIcon.jpg">
+                        </i>
+                        <span class ="externalLink">Deutsche Digitale Bibliothek (Deutschland)</span>
+                    </a>
+                </li>
+            </ul>
+            <p>&nbsp;</p>
+            <h4>Dieses Werk in:</h4>
+            <ul>
+                <li class="externalLink">
+                    <a rel="external" href="http://de.wikipedia.org/wiki/Johann_Wolfgang_von_Goethe" target="_blank">
+                        <i class="externalIcon">
+                            <img class="externalLink" alt="" src="http://de.wikipedia.org/favicon.ico">
+                        </i>
+                        <span class ="externalLink">Wikipedia (Deutsch)</span>
+                    </a>
+                </li>
+                <li class="externalLink">
+                    <a rel="external" href="http://de.wikisource.org/wiki/Johann_Wolfgang_von_Goethe" target="_blank">
+                        <i class="externalIcon">
+                            <img class="externalLink" alt="" src="http://wikisource.org/favicon.ico">
+                        </i>
+                        <span class ="externalLink">Wikisource</span>
+                    </a>
+                </li>
+                <li class="externalLink">
+                    <a rel="external" href="http://viaf.org/viaf/24602065" target="_blank">
+                        <i class="externalIcon">
+                            <img class="externalLink" alt="" src="http://viaf.org/viaf/images/viaf.ico">
+                        </i>
+                        <span class ="externalLink">VIAF - Virtual International Authority File</span>
+                    </a>
+                </li>
+                <li class="externalLink">
+                    <a rel="external" href="http://www.hls-dhs-dss.ch/textes/d/D11638.php" target="_blank">
+                        <i class="externalIcon">
+                            <img class="externalLink" alt="" src="http://www.hls-dhs-dss.ch/favicon.ico">
+                        </i>
+                        <span class ="externalLink">Historisches Lexikon der Schweiz (HLS)</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <!-- end persondSidebarContent -->
     </div>
-<? }; ?>
+    <!-- end personSidebar -->
+
+    <!-- Werk mit Details -->
+
+    <div id="personWorks">
+        <h4>Werke</h4>
+        <div id="tabs">
+            <ul class="recordTabs nav nav-tabs">
+                <li><a href="#tabs-1">Versionen dieses Werks</a></li>
+                <li><a href="#tabs-2">Medien über dieses Werk</a></li>
+                <li><a href="#tabs-3">Ähnliche Werke</a></li>
+            </ul>
+
+            <div id="tabs-1">
+                <div class="tabContent">
+                    <?
+                    $title = "Faust";
+                    $subtitle = "der Tragödie erster Teil";
+                    $author = "Flix";
+                    $year = "2014";
+                    $format = "Buch (Comic)";
+                    $coverImage = "../themes/linkedswissbib/images/Goethe_Safranski.jpg";
+                    $numberOfInstitutions = "1 Bibliothek";
+                    $holdingInstitution = "ETH Zürich - Bibliothek HDB";
+                    $linkToHoldings = "#";
+
+                    for ($i = 0; $i <= 1; $i++) {
+                        ?>
+                        <div id="resultView">
+                            <img src=<?echo $coverImage?> alt="Goethe">
+                            <div class="tabContentBibliographic">
+                                <h4><?echo $title?></h4>
+                                <p>
+                                    <?echo $subtitle?><br />
+                                    <b>Verfasser/Beitragende:&nbsp;</b><?echo $author?><br />
+                                    <b>Jahr:&nbsp;</b><?echo $year?><br />
+                                    <b>Format:&nbsp;</b><?echo $format?>
+                                </p>
+                                <div class="tabContentButtons">
+                                    <div class="col-md-3 actions">
+                                        <a id="dropdownLibraries" class="btn btn-primary dropdown-toggle hidden-print" data-toggle="dropdown">
+                                        <span>
+                                        <i class="fa fa-institution"></i>
+                                        </span>
+                                            <span class="hidden-xs hidden-sm"><?echo $numberOfInstitutions?></span>
+                                        </a>
+                                    <span class="visible-print-inline">
+                                    <i class="fa fa-institution"></i>
+                                    </span>
+                                        <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownLibraries" role="menu">
+                                            <li role="presentation">
+                                                <a href="<?echo $linkToHoldings?>" role="menuitem">
+                                                    <span class="a-before"></span>
+                                                    <?echo $holdingInstitution ?>
+                                                </a>
+                                            </li>
+                                        </ul>
+
+                                        <a class="btn btn-primary hidden-print" title="Zu Merkliste hinzufügen" href="#">
+                                        <span class="memorizelistadd">
+                                        <i class="fa fa-list-ul"></i>
+                                        </span>
+                                            <span class="hidden-xs hidden-sm">Merkliste</span>
+                                        </a>
+                                        <div class="savedLists alert alert-info hidden hidden-xs hidden-sm hidden-print">
+                                            <strong>Gespeichert in:</strong>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <?
+                    }
+                    ?>
+                </div>
+                <!-- end tabContent -->
+            </div>
+            <!-- end tabs-1 -->
+
+
+            <div id="tabs-2">
+                <div class="tabContent">
+                    <?
+                    $title = "Goethe";
+                    $subtitle = "the poet";
+                    $author = "Rüdiger Safranski";
+                    $year = "2014";
+                    $format = "Buch";
+                    $coverImage = "../themes/linkedswissbib/images/Goethe_Safranski.jpg";
+                    $numberOfInstitutions = "2 Bibliotheken";
+                    $holdingInstitution = "ETH Zürich - Bibliothek HDB";
+                    $linkToHoldings = "#";
+
+                    for ($i = 0; $i <= 1; $i++) {
+                        ?>
+                        <div id="resultView">
+                            <img src=<?echo $coverImage?> alt="Goethe">
+                            <div class="tabContentBibliographic">
+                                <h4><?echo $title?></h4>
+                                <p>
+                                    <?echo $subtitle?><br />
+                                    <b>Verfasser/Beitragende:&nbsp;</b><?echo $author?><br />
+                                    <b>Jahr:&nbsp;</b><?echo $year?><br />
+                                    <b>Format:&nbsp;</b><?echo $format?>
+                                </p>
+                                <div class="tabContentButtons">
+                                    <div class="col-md-3 actions">
+                                        <a id="dropdownLibraries" class="btn btn-primary dropdown-toggle hidden-print" data-toggle="dropdown">
+                                        <span>
+                                        <i class="fa fa-institution"></i>
+                                        </span>
+                                            <span class="hidden-xs hidden-sm"><?echo $numberOfInstitutions?></span>
+                                        </a>
+                                    <span class="visible-print-inline">
+                                    <i class="fa fa-institution"></i>
+                                    </span>
+                                        <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownLibraries" role="menu">
+                                            <li role="presentation">
+                                                <a href="<?echo $linkToHoldings?>" role="menuitem">
+                                                    <span class="a-before"></span>
+                                                    <?echo $holdingInstitution ?>
+                                                </a>
+                                            </li>
+                                            <li role="presentation">
+                                                <a href="<?echo $linkToHoldings?>" role="menuitem">
+                                                    <span class="a-before"></span>
+                                                    <?echo $holdingInstitution ?>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        <a class="btn btn-primary btn-frbr hidden-print" title="Weitere Ausgaben" href="#">
+                                        <span>
+                                        <i class="fa fa-eye"></i>
+                                        </span>
+                                            <span class="hidden-xs hidden-sm">Weitere Ausgaben</span>
+                                        </a>
+                                        <a class="btn btn-primary hidden-print" title="Zu Merkliste hinzufügen" href="#">
+                                        <span class="memorizelistadd">
+                                        <i class="fa fa-list-ul"></i>
+                                        </span>
+                                            <span class="hidden-xs hidden-sm">Merkliste</span>
+                                        </a>
+                                        <div class="savedLists alert alert-info hidden hidden-xs hidden-sm hidden-print">
+                                            <strong>Gespeichert in:</strong>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <?
+                    }
+                    ?>
+                </div>
+                <!-- end tabContent -->
+            </div>
+            <!-- end tabs-2 -->
+
+            <div id="tabs-3">
+                <div class="tabContent">
+                    <?
+                    $title = "Goethe";
+                    $subtitle = "the German";
+                    $author = "Norbert Mecklenburg";
+                    $year = "2014";
+                    $format = "Buch";
+                    $coverImage = "../themes/linkedswissbib/images/Goethe_Mecklenburg.jpg";
+                    $numberOfInstitutions = "2 Bibliotheken";
+                    $holdingInstitution = "ETH Zürich - Bibliothek HDB";
+                    $linkToHoldings = "#";
+
+                    for ($i = 0; $i <= 1; $i++) {
+                        ?>
+                        <div id="resultView">
+                            <img src=<?echo $coverImage?> alt="Goethe">
+                            <div class="tabContentBibliographic">
+                                <h4><?echo $title?></h4>
+                                <p>
+                                    <?echo $subtitle?><br />
+                                    <b>Verfasser/Beitragende:&nbsp;</b><?echo $author?><br />
+                                    <b>Jahr:&nbsp;</b><?echo $year?><br />
+                                    <b>Format:&nbsp;</b><?echo $format?>
+                                </p>
+                                <div class="tabContentButtons">
+                                    <div class="col-md-3 actions">
+                                        <a id="dropdownLibraries" class="btn btn-primary dropdown-toggle hidden-print" data-toggle="dropdown">
+                                        <span>
+                                        <i class="fa fa-institution"></i>
+                                        </span>
+                                            <span class="hidden-xs hidden-sm"><?echo $numberOfInstitutions?></span>
+                                        </a>
+                                    <span class="visible-print-inline">
+                                    <i class="fa fa-institution"></i>
+                                    </span>
+                                        <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownLibraries" role="menu">
+                                            <li role="presentation">
+                                                <a href="<?echo $linkToHoldings?>" role="menuitem">
+                                                    <span class="a-before"></span>
+                                                    <?echo $holdingInstitution ?>
+                                                </a>
+                                            </li>
+                                            <li role="presentation">
+                                                <a href="<?echo $linkToHoldings?>" role="menuitem">
+                                                    <span class="a-before"></span>
+                                                    <?echo $holdingInstitution ?>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        <a class="btn btn-primary btn-frbr hidden-print" title="Weitere Ausgaben" href="#">
+                                        <span>
+                                        <i class="fa fa-eye"></i>
+                                        </span>
+                                            <span class="hidden-xs hidden-sm">Weitere Ausgaben</span>
+                                        </a>
+                                        <a class="btn btn-primary hidden-print" title="Zu Merkliste hinzufügen" href="#">
+                                        <span class="memorizelistadd">
+                                        <i class="fa fa-list-ul"></i>
+                                        </span>
+                                            <span class="hidden-xs hidden-sm">Merkliste</span>
+                                        </a>
+                                        <div class="savedLists alert alert-info hidden hidden-xs hidden-sm hidden-print">
+                                            <strong>Gespeichert in:</strong>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <?
+                    }
+                    ?>
+                </div>
+                <!-- end tabContent -->
+            </div>
+            <!-- end tabs-3 -->
+        </div>
+        <!-- end tabs -->
+        <script>
+            $(function() {
+                $( "#tabs" ).tabs();
+            });
+        </script>
+    </div>
+    <!-- end personWorks -->
+
+    <!-- Alle Objekte -->
+
+    <!-- Timeline -->
+
+    <div id="personCarousel"> <!-- von authordetails -->
+        <h4>Gallerie</h4>
+
+        <div data-ride="carousel" class="carousel slide" id="similar-items-carousel">
+
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li class="active" data-slide-to="0" data-target="#similar-items-carousel"></li>
+                <li data-slide-to="1" data-target="#similar-items-carousel"></li>
+                <li data-slide-to="2" data-target="#similar-items-carousel"></li>
+                <li data-slide-to="3" data-target="#similar-items-carousel"></li>
+                <li data-slide-to="4" data-target="#similar-items-carousel"></li>
+                <li data-slide-to="5" data-target="#similar-items-carousel"></li>
+                <li data-slide-to="6" data-target="#similar-items-carousel"></li>
+                <li data-slide-to="7" data-target="#similar-items-carousel"></li>
+                <li data-slide-to="8" data-target="#similar-items-carousel"></li>
+                <li data-slide-to="9" data-target="#similar-items-carousel"></li>
+            </ol>
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+                <div class="item active">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <a href="/Record/32887101X" class="hover-overlay" style="min-height: 200px;">
+                                <img title="Until you make the shore" src="https://resources.swissbib.ch/Cover/Show?isn=1908836679&amp;size=large">
+                                <div class="content">
+                                    <i title="Buch" class="fa fa-x fa-buch"></i>
+                                    <b>Until you make the shore</b>
+                                    <br>von: Conaway, Cameron
+                                    <br>Veröffentlicht: 2014
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="col-sm-3">
+                            <a href="/Record/175208727" class="hover-overlay" style="min-height: 200px;">
+                                <img title="Incarnadine : poems" src="https://resources.swissbib.ch/Cover/Show?isn=1555976352&amp;size=large">
+                                <div class="content">
+                                    <i title="Buch" class="fa fa-x fa-buch"></i>
+                                    <b>Incarnadine : poems</b>
+                                    <br>von: Szybist, Mary
+                                    <br>Veröffentlicht: 2013
+                                </div>
+                            </a>
+
+                        </div>
+                        <div class="col-sm-3">
+                            <a href="/Record/176525807" class="hover-overlay" style="min-height: 200px;">
+                                <img title="Sightline : poems" src="https://resources.swissbib.ch/Cover/Show?isn=0976640554&amp;size=large">
+                                <div class="content">
+                                    <i title="Buch" class="fa fa-x fa-buch"></i>
+                                    <b>Sightline : poems</b>
+                                    <br>von: Austen, Elizabeth
+                                    <br>Veröffentlicht: 2010</div>
+                            </a>
+                        </div>
+                        <div class="col-sm-3">
+                            <a href="/Record/314280111" class="hover-overlay" style="min-height: 200px;">
+                                <img title="Start with a small guitar : poems" src="https://resources.swissbib.ch/Cover/Show?isn=0988924838&amp;size=large">
+                                <div class="content">
+                                    <i title="Buch" class="fa fa-x fa-buch"></i>
+                                    <b>Start with a small guitar : poems</b>
+                                    <br>von: Thompson, Lynne
+                                    <br>Veröffentlicht: 2013
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <a href="/Record/327412496" class="hover-overlay" style="min-height: 200px;">
+                                <img title="Copia : poems" src="https://resources.swissbib.ch/Cover/Show?isn=1938160460&amp;size=large">
+                                <div class="content">
+                                    <i title="Buch" class="fa fa-x fa-buch"></i>
+                                    <b>Copia : poems</b>
+                                    <br>von: Meitner, Erika
+                                    <br>Veröffentlicht: 2014
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-sm-3">
+                            <a href="/Record/304901997" class="hover-overlay" style="min-height: 200px;">
+                                <img title="Embark : poems" src="https://resources.swissbib.ch/Cover/Show?isn=0976640570&amp;size=large">
+                                <div class="content">
+                                    <i title="Buch" class="fa fa-x fa-buch"></i>
+                                    <b>Embark : poems</b>
+                                    <br>Veröffentlicht: 2012
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-sm-3">
+                            <a href="/Record/307411990" class="hover-overlay" style="min-height: 200px;">
+                                <img title="Collected poems" src="https://resources.swissbib.ch/Cover/Show?isn=1598530836&amp;size=large">
+                                <div class="content">
+                                    <i title="Buch" class="fa fa-x fa-buch"></i>
+                                    <b>Collected poems</b>
+                                    <br>von: Cullen, Countee
+                                    <br>Veröffentlicht: 2013
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-sm-3">
+                            <a href="/Record/331150034" class="hover-overlay" style="min-height: 200px;">
+                                <img title="Streaming : poems" src="https://resources.swissbib.ch/Cover/Show?isn=1566893755&amp;size=large">
+                                <div class="content">
+                                    <i title="Buch" class="fa fa-x fa-buch"></i>
+                                    <b>Streaming : poems</b>
+                                    <br>von: Coke, Allison Adelle Hedge
+                                    <br>Veröffentlicht: 2014
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <a href="/Record/335357466" class="hover-overlay" style="min-height: 200px;">
+                                <img title="Selfish : poems" src="https://resources.swissbib.ch/Cover/Show?isn=1555977081&amp;size=large">
+                                <div class="content">
+                                    <i title="Buch" class="fa fa-x fa-buch"></i>
+                                    <b>Selfish : poems</b>
+                                    <br>von: Goldbarth, Albert
+                                    <br>Veröffentlicht: 2015
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-sm-3">
+                            <a href="/Record/182619362" class="hover-overlay" style="min-height: 200px;">
+                                <img title="Rumors of Earth : poems" src="https://resources.swissbib.ch/Cover/Show?isn=1890193348&amp;size=large">
+                                <div class="content">
+                                    <i title="Buch" class="fa fa-x fa-buch"></i>
+                                    <b>Rumors of Earth : poems</b>
+                                    <br>von: Edwards, Robert
+                                    <br>Veröffentlicht: 2011
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-sm-3">
+                            <a href="/Record/318749041" class="hover-overlay" style="min-height: 200px;">
+                                <img title="The earth avails : poems" src="https://resources.swissbib.ch/Cover/Show?isn=1555976662&amp;size=large">
+                                <div class="content">
+                                    <i title="Buch" class="fa fa-x fa-buch"></i>
+                                    <b>The earth avails : poems</b>
+                                    <br>von: Wunderlich, Mark
+                                    <br>Veröffentlicht: 2014
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-sm-3">
+                            <a href="/Record/185321690" class="hover-overlay" style="min-height: 200px;">
+                                <img title="Must a violence : poems" src="https://resources.swissbib.ch/Cover/Show?isn=1609381297&amp;size=large">
+                                <div class="content">
+                                    <i title="Buch" class="fa fa-x fa-buch"></i>
+                                    <b>Must a violence : poems</b>
+                                    <br>von: Buchanan, Oni
+                                    <br>Veröffentlicht: 2012
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <a href="/Record/18541396X" class="hover-overlay" style="min-height: 200px;">
+                                <img title="Left-handed : poems" src="https://resources.swissbib.ch/Cover/Show?isn=030795708X&amp;size=large">
+                                <div class="content">
+                                    <i title="Buch" class="fa fa-x fa-buch"></i>
+                                    <b>Left-handed : poems</b>
+                                    <br>von: Galassi, Jonathan
+                                    <br>Veröffentlicht: 2012
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-sm-3">
+                            <a href="/Record/293039658" class="hover-overlay" style="min-height: 200px;">
+                                <img title="Poems 1962-2012" src="https://resources.swissbib.ch/Cover/Show?isn=0374126089&amp;size=large">
+                                <div class="content">
+                                    <i title="Buch" class="fa fa-x fa-buch"></i>
+                                    <b>Poems 1962-2012</b>
+                                    <br>von: Glück, Louise
+                                    <br>Veröffentlicht: 2012
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-sm-3">
+                            <a href="/Record/32846290X" class="hover-overlay" style="min-height: 200px;">
+                                <img title="Divine nothingness : poems" src="https://resources.swissbib.ch/Cover/Show?isn=0393243508&amp;size=large">
+                                <div class="content">
+                                    <i title="Buch" class="fa fa-x fa-buch"></i>
+                                    <b>Divine nothingness : poems</b>
+                                    <br>von: Stern, Gerald
+                                    <br>Veröffentlicht: 2015
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-sm-3">
+                            <a href="/Record/32817002X" class="hover-overlay" style="min-height: 200px;">
+                                <img title="Brain fever : poems" src="https://resources.swissbib.ch/Cover/Show?isn=0393243354&amp;size=large">
+                                <div class="content">
+                                    <i title="Buch" class="fa fa-x fa-buch"></i>
+                                    <b>Brain fever : poems</b>
+                                    <br>von: Hahn, Kimiko
+                                    <br>Veröffentlicht: 2014
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <a href="/Record/326317333" class="hover-overlay" style="min-height: 200px;">
+                                <img title="Luminous other : poems" src="https://resources.swissbib.ch/Cover/Show?isn=0912592753&amp;size=large">
+                                <div class="content">
+                                    <i title="Buch" class="fa fa-x fa-buch"></i>
+                                    <b>Luminous other : poems</b>
+                                    <br>von: Davidson, Robin
+                                    <br>Veröffentlicht: 2013
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-sm-3">
+                            <a href="/Record/329591282" class="hover-overlay" style="min-height: 200px;">
+                                <img title="Blood lyrics : poems" src="https://resources.swissbib.ch/Cover/Show?isn=1555976921&amp;size=large">
+                                <div class="content">
+                                    <i title="Buch" class="fa fa-x fa-buch"></i>
+                                    <b>Blood lyrics : poems</b>
+                                    <br>von: Ford, Katie
+                                    <br>Veröffentlicht: 2014
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-sm-3">
+                            <a href="/Record/334458293" class="hover-overlay" style="min-height: 200px;">
+                                <img title="The April poems" src="https://resources.swissbib.ch/Cover/Show?isn=0889843597&amp;size=large">
+                                <div class="content">
+                                    <i title="Buch" class="fa fa-x fa-buch"></i>
+                                    <b>The April poems</b>
+                                    <br>von: Rooke, Leon
+                                    <br>Veröffentlicht: 2013
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-sm-3">
+                            <a href="/Record/334091950" class="hover-overlay" style="min-height: 200px;">
+                                <img title="Shadows, mist &amp; fog : poems" src="https://resources.swissbib.ch/Cover/Show?isn=1300417978&amp;size=large">
+                                <div class="content">
+                                    <i title="Buch" class="fa fa-x fa-buch"></i>
+                                    <b>Shadows, mist &amp; fog : poems</b>
+                                    <br>von: Adams, Frank
+                                    <br>Veröffentlicht: 2013
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <a href="/Record/336777353" class="hover-overlay" style="min-height: 200px;">
+                                <img title="Fanny says : poems" src="https://resources.swissbib.ch/Cover/Show?isn=1938160576&amp;size=large">
+                                <div class="content">
+                                    <i title="Buch" class="fa fa-x fa-buch"></i>
+                                    <b>Fanny says : poems</b>
+                                    <br>von: Brown, Nickole
+                                    <br>Veröffentlicht: 2015
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-sm-3">
+                            <a href="/Record/18512075X" class="hover-overlay" style="min-height: 200px;">
+                                <img title="The game of boxes : (poems)" src="https://resources.swissbib.ch/Cover/Show?isn=1555976204&amp;size=large">
+                                <div class="content">
+                                    <i title="Buch" class="fa fa-x fa-buch"></i>
+                                    <b>The game of boxes : (poems)</b>
+                                    <br>von: Barnett, Catherine
+                                    <br>Veröffentlicht: 2012
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-sm-3">
+                            <a href="/Record/31567928X" class="hover-overlay" style="min-height: 200px;">
+                                <img title="Study &amp; other poems on art" src="https://resources.swissbib.ch/Cover/Show?isn=193702718X&amp;size=large">
+                                <div class="content">
+                                    <i title="Buch" class="fa fa-x fa-buch"></i>
+                                    <b>Study &amp; other poems on art</b>
+                                    <br>von: Otomo, Yuko
+                                    <br>Veröffentlicht: 2013
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-sm-3">
+                            <a href="/Record/319819469" class="hover-overlay" style="min-height: 200px;">
+                                <img title="Interrogating water : and other poems" src="https://resources.swissbib.ch/Cover/Show?isn=1908836628&amp;size=large">
+                                <div class="content">
+                                    <i title="Buch" class="fa fa-x fa-buch"></i>
+                                    <b>Interrogating water : and other poems</b>
+                                    <br>von: Fried, Philip
+                                    <br>Veröffentlicht: 2013
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <a href="/Record/135982863" class="hover-overlay" style="min-height: 200px;">
+                                <img title="The right place to jump : [poems]" src="https://resources.swissbib.ch/Cover/Show?isn=1936970090&amp;size=large">
+                                <div class="content">
+                                    <i title="Buch" class="fa fa-x fa-buch"></i>
+                                    <b>The right place to jump : [poems]</b>
+                                    <br>von: Covino, Peter
+                                    <br>Veröffentlicht: 2012
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-sm-3">
+                            <a href="/Record/315680121" class="hover-overlay" style="min-height: 200px;">
+                                <img title="The year of what now : poems" src="https://resources.swissbib.ch/Cover/Show?isn=1555976484&amp;size=large">
+                                <div class="content">
+                                    <i title="Buch" class="fa fa-x fa-buch"></i>
+                                    <b>The year of what now : poems</b>
+                                    <br>von: Russell, Brian
+                                    <br>Veröffentlicht: 2013
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-sm-3">
+                            <a href="/Record/318219883" class="hover-overlay" style="min-height: 200px;">
+                                <img title="The rusted city : a novel in poems" src="https://resources.swissbib.ch/Cover/Show?isn=1935210521&amp;size=large">
+                                <div class="content">
+                                    <i title="Buch" class="fa fa-x fa-buch"></i>
+                                    <b>The rusted city : a novel in poems</b>
+                                    <br>von: Hurt, Rochelle
+                                    <br>Veröffentlicht: 2014
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-sm-3">
+                            <a href="/Record/334834848" class="hover-overlay" style="min-height: 200px;">
+                                <img title="S O S : poems 1961-2013" src="https://resources.swissbib.ch/Cover/Show?isn=080212335X&amp;size=large">
+                                <div class="content">
+                                    <i title="Buch" class="fa fa-x fa-buch"></i>
+                                    <b>S O S : poems 1961-2013</b>
+                                    <br>von: Baraka, Imamu Amiri
+                                    <br>Veröffentlicht: 2014
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <a href="/Record/18148661X" class="hover-overlay" style="min-height: 200px;">
+                                <img title="Garnet poems : an anthology of Connecticut poetry since 1776" src="https://resources.swissbib.ch/Cover/Show?isn=0819573094&amp;size=large">
+                                <div class="content">
+                                    <i title="Buch" class="fa fa-x fa-buch"></i>
+                                    <b>Garnet poems : an anthology of Connecticut poetry since 1776</b>
+                                    <br>Veröffentlicht: 2012
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-sm-3">
+                            <a href="/Record/182871711" class="hover-overlay" style="min-height: 200px;">
+                                <img title="River by the glass : a collection of poems" src="https://resources.swissbib.ch/Cover/Show?isn=0962309435&amp;size=large">
+                                <div class="content">
+                                    <i title="Buch" class="fa fa-x fa-buch"></i>
+                                    <b>River by the glass : a collection of poems</b>
+                                    <br>von: Rose, Monika
+                                    <br>Veröffentlicht: 2011
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-sm-3">
+                            <a href="/Record/182417859" class="hover-overlay" style="min-height: 200px;">
+                                <img title="Special ed : voices from a hidden classroom : poems" src="https://resources.swissbib.ch/Cover/Show?isn=1935520474&amp;size=large">
+                                <div class="content">
+                                    <i title="Buch" class="fa fa-x fa-buch"></i>
+                                    <b>Special ed : voices from a hidden classroom : poems</b>
+                                    <br>von: Bernstein, Dennis J.
+                                    <br>Veröffentlicht: 2012
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-sm-3">
+                            <a href="/Record/314392858" class="hover-overlay" style="min-height: 200px;">
+                                <img title="Taps on the walls : poems from the Hanoi Hilton" src="https://resources.swissbib.ch/Cover/Show?isn=0615659055&amp;size=large">
+                                <div class="content">
+                                    <i title="Buch" class="fa fa-x fa-buch"></i>
+                                    <b>Taps on the walls : poems from the Hanoi Hilton</b>
+                                    <br>von: Borling, John
+                                    <br>Veröffentlicht: 2013
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <a href="/Record/31534329X" class="hover-overlay" style="min-height: 200px;">
+                                <img title="Best new poets 2013 : 50 poems from emerging writers" src="https://resources.swissbib.ch/Cover/Show?isn=0976629682&amp;size=large">
+                                <div class="content">
+                                    <i title="Buch" class="fa fa-x fa-buch"></i>
+                                    <b>Best new poets 2013 : 50 poems from emerging writers</b>
+                                    <br>Veröffentlicht: 2013
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-sm-3">
+                            <a href="/Record/315582359" class="hover-overlay" style="min-height: 200px;">
+                                <img title="A word in my mouth : selected spiritual poems" src="https://resources.swissbib.ch/Cover/Show?isn=1620329654&amp;size=large">
+                                <div class="content">
+                                    <i title="Buch" class="fa fa-x fa-buch"></i>
+                                    <b>A word in my mouth : selected spiritual poems</b>
+                                    <br>von: Cording, Robert
+                                    <br>Veröffentlicht: 2013
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-sm-3">
+                            <a href="/Record/303666218" class="hover-overlay" style="min-height: 200px;">
+                                <img title="Clear a place for good : new poems 2006-2012" src="https://resources.swissbib.ch/Cover/Show?isn=0984417540&amp;size=large">
+                                <div class="content">
+                                    <i title="Buch" class="fa fa-x fa-buch"></i>
+                                    <b>Clear a place for good : new poems 2006-2012</b>
+                                    <br>von: Ostrom, Hans A.
+                                    <br>Veröffentlicht: 2012
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-sm-3">
+                            <a href="/Record/317144960" class="hover-overlay" style="min-height: 200px;">
+                                <img title="City that ripens on the tree of the world : poems" src="https://resources.swissbib.ch/Cover/Show?isn=0988790300&amp;size=large">
+                                <div class="content">
+                                    <i title="Buch" class="fa fa-x fa-buch"></i>
+                                    <b>City that ripens on the tree of the world : poems</b>
+                                    <br>von: Davidson, Robin
+                                    <br>Veröffentlicht: 2013
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <a href="/Record/33324009X" class="hover-overlay" style="min-height: 200px;">
+                                <img title="A stranger's mirror : new and selected poems, 1994-2014" src="https://resources.swissbib.ch/Cover/Show?isn=0393244644&amp;size=large">
+                                <div class="content">
+                                    <i title="Buch" class="fa fa-x fa-buch"></i>
+                                    <b>A stranger's mirror : new and selected poems, 1994-2014</b>
+                                    <br>von: Hacker, Marilyn
+                                    <br>Veröffentlicht: 2015
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-sm-3">
+                            <a href="/Record/176277633" class="hover-overlay" style="min-height: 200px;">
+                                <img title="Many trails to the summit : poems by forty-two Pacific Northwest poets" src="https://resources.swissbib.ch/Cover/Show?isn=0974502480&amp;size=large">
+                                <div class="content">
+                                    <i title="Buch" class="fa fa-x fa-buch"></i>
+                                    <b>Many trails to the summit : poems by forty-two Pacific Northwest poets</b>
+                                    <br>Veröffentlicht: 2010
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-sm-3">
+                            <a href="/Record/312272170" class="hover-overlay" style="min-height: 200px;">
+                                <img title="Testimony : a tribute to Charlie Parker : with new and selected jazz poems" src="https://resources.swissbib.ch/Cover/Show?isn=0819574295&amp;size=large">
+                                <div class="content">
+                                    <i title="Buch" class="fa fa-x fa-buch"></i>
+                                    <b>Testimony : a tribute to Charlie Parker : with new and selected jazz poems</b>
+                                    <br>von: Komunyakaa, Yusef
+                                    <br>Veröffentlicht: 2013
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-sm-3">
+                            <a href="/Record/305019147" class="hover-overlay" style="min-height: 200px;">
+                                <img title="Longing for the blessing : midrashic voices from Toldot : poems and prose" src="https://resources.swissbib.ch/Cover/Show?isn=1568092172&amp;size=large">
+                                <div class="content">
+                                    <i title="Buch" class="fa fa-x fa-buch"></i>
+                                    <b>Longing for the blessing : midrashic voices from Toldot : poems and prose</b>
+                                    <br>von: Schmidt, Judith Sarah
+                                    <br>Veröffentlicht: 2013
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Controls -->
+            <a data-slide="prev" role="button" href="#similar-items-carousel" class="left carousel-control">
+                <span class="fa fa-chevron-left glyphicon-chevron-left"></span>
+            </a>
+            <a data-slide="next" role="button" href="#similar-items-carousel" class="right carousel-control">
+                <span class="fa fa-chevron-right glyphicon-chevron-right"></span>
+            </a>
+
+            <script>
+                function normalizeHeights() {
+                    var tallest = 0;
+                    var items = $('#similar-items-carousel .hover-overlay');
+                    items.each(function() { //add heights to array
+                        if(tallest &lt; $(this).height()) {
+                            tallest = $(this).height();
+                        }
+                    });
+                    items.css('min-height',tallest + 'px');
+                }
+                $('#similar-items-carousel img').load(normalizeHeights);
+            </script>
+        </div>
+    </div>
+</div>
