@@ -27,8 +27,8 @@
                 <h2> <?
                     $results = $this->results->getResults();
                     foreach ($results as $rdfDriver):
-                    $author = preg_replace(['/</','/>/'], ['&lt;','&gt;'], $rdfDriver->getName());endforeach;
-                    ?>
+                    $title = preg_replace(['/</','/>/'], ['&lt;','&gt;'], $rdfDriver->getTitle());endforeach;
+                    ?><?echo $title?>
                 </h2>
             </div>
             Schriftsteller, Publizist, Politiker, Jurist, Naturwissenschaftler, Theaterintendant, Maler, Zeichner
