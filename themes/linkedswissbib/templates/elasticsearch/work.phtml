@@ -24,7 +24,12 @@
         </div>
         <div id="workDescription">
             <div id="resultView">
-                <h2>Johann Wolfgang von Goethe</h2>
+                <h2> <?
+                    $results = $this->results->getResults();
+                    foreach ($results as $rdfDriver):
+                    $author = preg_replace(['/</','/>/'], ['&lt;','&gt;'], $rdfDriver->getName());endforeach;
+                    ?>
+                </h2>
             </div>
             Schriftsteller, Publizist, Politiker, Jurist, Naturwissenschaftler, Theaterintendant, Maler, Zeichner
             <br>
