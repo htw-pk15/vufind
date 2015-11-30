@@ -125,7 +125,7 @@ class ElasticSearchRDF extends AbstractBase {
 
                 foreach ($array[$i] as $key => $item1) {
                     if ($key == 'foaf:firstName' ) {
-                        $name .= $firsName = $item1 . " ";
+                        $name .= $firstName = $item1 . " ";
                     }
                 }
                 foreach ($array[$i] as $key => $item2) {
