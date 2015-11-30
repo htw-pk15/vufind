@@ -193,7 +193,7 @@ class ElasticSearchRDF extends AbstractBase {
         } elseif ($this->fields['_source']['rdf:type']['@id'] == "http://purl.org/ontology/bibo/Article") {
             return "../themes/linkedswissbib/images/icon_article.png";
         } else {
-            echo "-";
+            return "../themes/linkedswissbib/images/icon_no_image_available.gif";
         }
     }
 
