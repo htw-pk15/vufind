@@ -121,16 +121,14 @@ class ElasticSearchRDF extends AbstractBase {
             return $firstName . " " . $lastName;
         } else {
             for ($i = 0; $i <= count($array); $i++) {
-                array_push($a);
-
                 foreach ($array[$i] as $key => $item1) {
                     if ($key == 'foaf:firstName' ) {
-                        $name .= $firsName = $item1 . " ";
+                        $name .= $item1 . " ";
                     }
                 }
                 foreach ($array[$i] as $key => $item2) {
                     if ($key == 'foaf:lastName' ) {
-                        $name .= $lastName = $item2 . "; ";
+                        $name .= $item2 . "; ";
                     }
                 }
             }
@@ -193,7 +191,7 @@ class ElasticSearchRDF extends AbstractBase {
         } elseif ($this->fields['_source']['rdf:type']['@id'] == "http://purl.org/ontology/bibo/Article") {
             return "../themes/linkedswissbib/images/icon_article.png";
         } else {
-            echo "-";
+            return "../themes/linkedswissbib/images/icon_no_image_available.gif";
         }
     }
 
