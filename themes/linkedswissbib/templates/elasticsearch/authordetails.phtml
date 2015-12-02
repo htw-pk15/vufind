@@ -176,7 +176,7 @@
                         $subtitle = "the writer";*/
                         $author = preg_replace(['/</','/>/'], ['&lt;','&gt;'], $rdfDriver->getName());
                         $year = preg_replace(['/</','/>/'], ['&lt;','&gt;'], $rdfDriver->getPublicationStatement());
-                        $format = "Buch";
+                        $format = preg_replace(['/</','/>/'], ['&lt;','&gt;'], $rdfDriver->getRdfType());;
                         $coverImage = preg_replace(['/</','/>/'], ['&lt;','&gt;'], $rdfDriver->getISBN10());
                         $numberOfInstitutions = "2 Bibliotheken";
                         $holdingInstitution = "ETH Zürich - Bibliothek HDB";

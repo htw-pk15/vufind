@@ -67,7 +67,7 @@ class ElasticSearchRDF extends AbstractBase {
 
     }
 
-
+/*
     public function getRdfType()
     {
         if (isset($this->fields['_source']['@type']))
@@ -77,8 +77,13 @@ class ElasticSearchRDF extends AbstractBase {
         } else {
             return [];
         }
+    }*/
 
-
+    public function getRdfType()
+    {
+        $rdfType = $this->fields['_source']['rdf:type']['@id'];
+        $rdfType = substr_replace($rdfType, " ", 0, 30);
+        return $rdfType;
     }
 
     public function getLanguage()
