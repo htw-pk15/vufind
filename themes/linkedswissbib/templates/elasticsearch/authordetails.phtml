@@ -157,6 +157,36 @@
     </div>
     <!-- end personAuthorWrapper -->
 
+    <!--timeline-->
+    <div id="timeline" style="width:800px;height:200px"></div>
+    <link href="examples.css" rel="stylesheet" type="text/css">
+    <script language="javaScript" type="text/javascript" src="../themes/linkedswissbib/js/vendor/flot/jquery.js"></script>
+    <script language="JavaScript" type="text/javascript" src="../themes/linkedswissbib/js/vendor/flot/jquery.flot.js"></script>
+    <script language="JavaScript" type="text/javascript" src="../themes/linkedswissbib/js/vendor/flot/jquery.flot.categories.js"></script>
+    <script type="text/javascript">
+
+        $(function() {
+
+            var data = [["2000", 150],["2001", 200], ["2002", 300], ["2004", 500],["2005", 100]];
+
+            $.plot("#timeline", [ data ], {
+                series: {
+                    bars: {
+                        show: true,
+                        barWidth: 0.6,
+                        align: "center"
+                    }
+                },
+                xaxis: {
+                    mode: "categories",
+                    tickLength: 0
+                }
+            });
+
+        });
+
+    </script>
+
     <div id="personWorks">
         <h4>Werke</h4>
         <div id="tabs">
