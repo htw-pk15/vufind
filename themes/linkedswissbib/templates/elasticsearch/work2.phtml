@@ -1,1 +1,24 @@
 Hello
+</div>
+<?
+$results = $this->results->getResults();
+foreach ($results as $rdfDriver): ?>
+    <div id="resultView">
+        <p>
+        <h4><?=  preg_replace(['/</','/>/'], ['&lt;','&gt;'], $rdfDriver->getTitle()); ?></h4>
+        <b>Verfasser, Beitragende:</b> &nbsp;<?=  preg_replace(['/</','/>/'], ['&lt;','&gt;'], $rdfDriver->getName()); ?><br />
+        <!--                <b>Verfasser, Beitragende:</b> &nbsp;<?/*=  preg_replace(['/</','/>/'], ['&lt;','&gt;'], $rdfDriver->getFirstNameResources()); */?>
+                <?/*=  preg_replace(['/</','/>/'], ['&lt;','&gt;'], $rdfDriver->getLastNameResources()); */?><br />-->
+        <b>Ort, Verlag, Jahr:</b> &nbsp; <?=  preg_replace(['/</','/>/'], ['&lt;','&gt;'], $rdfDriver->getPublicationStatement()); ?><br />
+        <b>Beschreibung:</b> &nbsp; <?=  preg_replace(['/</','/>/'], ['&lt;','&gt;'], $rdfDriver->getFormat()); ?><br />
+        <b>Link Cover (ID):</b> &nbsp; <a rel="external" href="<?=  preg_replace(['/</','/>/'], ['&lt;','&gt;'], $rdfDriver->getCover()); ?>">
+            <?=  preg_replace(['/</','/>/'], ['&lt;','&gt;'], $rdfDriver->getCover()); ?></a><br />
+        <b>Link Cover (ISBN10):</b> &nbsp; <a rel="external" href="<?=  preg_replace(['/</','/>/'], ['&lt;','&gt;'], $rdfDriver->getISBN10()); ?>">
+            <?=  preg_replace(['/</','/>/'], ['&lt;','&gt;'], $rdfDriver->getISBN10()); ?></a><br />
+        <img src="<?=  preg_replace(['/</','/>/'], ['&lt;','&gt;'], $rdfDriver->getISBN10()); ?>">
+        </p>
+        <br />
+    </div>
+<? endforeach;?>
+<p>&nbsp;</p>
+</div>
