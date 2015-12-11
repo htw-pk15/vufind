@@ -49,6 +49,12 @@ class ElasticsearchController extends AbstractSearch
 
     }
 
+    public function Work2Action ()
+    {
+        return parent::resultsAction();
+
+    }
+
     /**
      * Convenience method for accessing results
      *
