@@ -1,4 +1,78 @@
 Hello
+
+<div id="workWrapper">
+    <div id="personAuthorImage">
+        <img alt="Der Bibliothekar" src="../themes/linkedswissbib/images/JudithKuckart_DerBibliothekar.jpg">
+    </div>
+    <div id="workDescription">
+        <div id="resultView">
+            <h2> <?
+                $results = $this->results->getResults();
+                foreach ($results as $rdfDriver):
+                    $title = preg_replace(['/</','/>/'], ['&lt;','&gt;'], $rdfDriver->getFirstNameContributor());endforeach;
+                ?><?echo $title?>
+            </h2>
+        </div>
+        Schriftsteller, Publizist, Politiker, Jurist, Naturwissenschaftler, Theaterintendant, Maler, Zeichner
+        <br>
+        <br>
+        <p>
+            Geboren: 28. August 1749, Frankfurt am Main
+            <br>
+            Gestorben; 22. März 1832, Weimar
+        </p>
+        <div id="personAccordion">
+            <div id="accordion" class="panel-group" role="tablist" aria-multiselectable="true">
+                <div id="holdings-details" class="panel panel-default">
+                    <div id="heading-details" class="panel-heading" role="tab">
+                        <h3 class="panel-title">
+                            <a data-toggle="collapse" href="#collapse-details" aria-expanded="false">
+                                <span>Mehr Details zu Johann Wolfgang von Goethe</span>
+                            </a>
+                        </h3>
+                    </div>
+                    <div id="collapse-details" class="panel-collapse collapse" level="1" role="tabpanel" aria-labelledby="heading-details">
+                        <div class="list-group">
+                            <div id="personDetailsLabel">Biografie:</div>
+                            <div id="personDetails">Johann Wolfgang von Goethe (* 28. August 1749 in Frankfurt am Main als Johann Wolfgang Goethe; † 22. März 1832 in Weimar), geadelt 1782, gilt als einer der bedeutendsten Repräsentanten deutschsprachiger Dichtung. Goethe stammte aus einer angesehenen bürgerlichen Familie; sein Grossvater mütterlicherseits war als Stadtschultheiss höchster Beamter der Stadt Frankfurt, sein Vater Doktor der Rechte und kaiserlicher Rat. Er und seine Schwester Cornelia erfuhren eine aufwendige Ausbildung durch Hauslehrer. Dem Wunsch seines Vaters folgend studierte Goethe in Strassburg und Leipzig Rechtswissenschaft und war danach als Advokat in Wetzlar und Frankfurt tätig. Gleichzeitig drängten ihn Talent und Neigung zur Dichtkunst, die ihm mit dem Drama Götz von Berlichingen einen frühen Erfolg und Anerkennung in der literarischen Welt zuteilwerden liess.</div>
+                            <div id="personMoreDetails">Drama, Deutsche Literatur, Schauspiel, Gedichte</div>
+                            <div id="personMoreLabels">Genre/Kategorie:</div>
+                            <div id="personMoreDetails">wilhelminische Ära, Romantik, Aufklärung</div>
+                            <div id="personMoreLabels">Bewegung, Zeit, Ära:</div>
+                            <div id="personMoreDetails">
+                                Johann Wolfgang von Göthe
+                                <br>
+                                Wolfgang von Goethe
+                                <br>
+                                Wolfgang Goethe
+                                <br>
+                                Johann Wolfgang Goethe
+                            </div>
+                            <div id="personMoreLabels">Namensvarianten:</div>
+                            <div id="personMoreDetails">
+                                Elisabeth Goethe (Mutter)
+                                <br>
+                                Friedel Knolle (berufliche Beziehung)
+                                <br>
+                                Rolf Alpers (berufliche Beziehung)
+                                <br>
+                                Hermann Heinzel (berufliche Beziehung)
+                                <br>
+                            </div>
+                            <div id="personMoreLabels">In Beziehung stehend:</div>
+                            <div id="personMoreDetails">
+                                VIAF - Virtual International Authority File
+                                <br>
+                                Wikipedia (Deutsch)
+                                <br>
+                            </div>
+                            <div id="personMoreLabels">Quellen:</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 <?
 $results = $this->results->getResults();
