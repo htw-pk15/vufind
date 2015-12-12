@@ -178,13 +178,17 @@
                     bars: {
                         show: true,
                         barWidth: 0.6,
-                        align: "center"
+                        align: "center",
+                        fill:.75
                     }
                 },
                 xaxis: {
                     mode: "categories",
                     tickLength: 0
-                }
+                },
+
+                colors: ["#0D785B"]
+
             });
 
             window.onresize = function(event) {
