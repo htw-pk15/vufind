@@ -157,58 +157,28 @@
     </div>
     <!-- end personAuthorWrapper -->
 
+
     <!--timeline-->
-    <div id="timeline" style="width:100%; height:200px;"></div>
-    <link href="./themes/linkedswissbib/js/vendor/flot/examples/examples.css" rel="stylesheet" type="text/css">
-    <!--link href="../themes/linkedswissbib/js/vendor/flot/examples/shared/jquery-ui/jquery-ui.min.css" rel="stylesheet" type="text/css"-->
-    <!--script language="javaScript" type="text/javascript" src="../themes/linkedswissbib/js/vendor/flot/jquery.js"></script-->
-    <!--script language="javascript" type="text/javascript" src="../themes/linkedswissbib/js/vendor/flot/examples/shared/jquery-ui/jquery-ui.min.js"></script-->
+    <? $this->results->timelineArray(); ?>
+    <!--script>alert(data);</script-->
+    <link href="../themes/linkedswissbib/js/vendor/flot/examples/examples.css" rel="stylesheet" type="text/css">
     <script language="JavaScript" type="text/javascript" src="../themes/linkedswissbib/js/vendor/flot/jquery.flot.js"></script>
     <script language="JavaScript" type="text/javascript" src="../themes/linkedswissbib/js/vendor/flot/jquery.flot.categories.js"></script>
     <script language="javascript" type="text/javascript" src="../themes/linkedswissbib/js/vendor/flot/jquery.flot.resize.js"></script>
-    <script type="text/javascript">
+    <script language="javascript" type="text/javascript" src="../themes/linkedswissbib/js/vendor/flot/timeline.js"></script>
 
-        $(function() {
+    <!--? $this->results->timelineArray(); ?> -->
 
-            var data = [["2000", 150],["2001", 200], ["2002", 300], ["2004", 500],["2005", 100]];
+    <!--script>
+        var array = [['2000', 150],['2001', 200], ['2002', 300], ['2004', 500],['2005', 100]];
+        alert("Zuerst ist data: " + data);
+        data.push(array);
+        alert("Danach ist data: " + data);
+    </script-->
 
-            var timeline = $("#timeline");
-            var plot = $.plot(timeline, [ data ], {
-                series: {
-                    bars: {
-                        show: true,
-                        barWidth: 0.6,
-                        align: "center",
-                        fill:.75
-                    }
-                },
-                xaxis: {
-                    mode: "categories",
-                    tickLength: 0
-                },
+    <div id="timeline" style="width:100%; height:200px;"></div>
 
-                colors: ["#0D785B"]
-
-            });
-
-            window.onresize = function(event) {
-                plot;
-            }
-
-            /*
-            $("#timeline").resizable({
-                maxWidth: 900,
-                maxHeight: 500,
-                minWidth: 450,
-                minHeight: 250
-            });
-            */
-
-        });
-
-    </script>
-
-    <div id="personWorks">
+        <div id="personWorks">
         <h4>Werke</h4>
         <div id="tabs">
             <ul class="recordTabs nav nav-tabs">
