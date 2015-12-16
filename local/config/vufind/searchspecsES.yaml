@@ -86,6 +86,7 @@ Work:
   UsedTypes:
     - bibliographicResource
     - person
+    - work
   UsedIndex:
     - testsb
   query:
@@ -100,6 +101,7 @@ Work:
           - dc:contributor.foaf:Person.@id
           - bibo:isbn13
           - bibo:isbn10
+          - @id
         type:
           - cross_fields #should be default
         operator:
