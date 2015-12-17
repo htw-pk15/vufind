@@ -196,7 +196,7 @@
                         /* $title = $title;
                         $subtitle = "the writer";*/
                         $author = preg_replace(['/</','/>/'], ['&lt;','&gt;'], $rdfDriver->getName());
-                        $year = preg_replace(['/</','/>/'], ['&lt;','&gt;'], $rdfDriver->getPublicationStatement());
+                        $year = preg_replace(['/</','/>/'], ['&lt;','&gt;'], $rdfDriver->getYear());
                         $format = preg_replace(['/</','/>/'], ['&lt;','&gt;'], $rdfDriver->getRdfType());;
                         $coverImage = preg_replace(['/</','/>/'], ['&lt;','&gt;'], $rdfDriver->getISBN10());
                         $numberOfInstitutions = "2 Bibliotheken";
