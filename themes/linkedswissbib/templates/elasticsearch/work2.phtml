@@ -9,11 +9,15 @@ Hello
             <h2> <?
                 $results = $this->results->getResults();
                 foreach ($results as $rdfDriver):
-                    $title = preg_replace(['/</','/>/'], ['&lt;','&gt;'], $rdfDriver->getFirstNameContributor());endforeach;
+                    $title = preg_replace(['/</','/>/'], ['&lt;','&gt;'], $rdfDriver->getTitle());endforeach;
                 ?><?echo $title?>
             </h2>
         </div>
-        Schriftsteller, Publizist, Politiker, Jurist, Naturwissenschaftler, Theaterintendant, Maler, Zeichner
+        Jahr: <?
+        $results = $this->results->getResults();
+        foreach ($results as $rdfDriver):
+            $title = preg_replace(['/</','/>/'], ['&lt;','&gt;'], $rdfDriver->getYear());endforeach;
+        ?><?echo $title?>
         <br>
         <br>
         <p>
