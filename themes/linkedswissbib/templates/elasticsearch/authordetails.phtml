@@ -159,23 +159,22 @@
 
 
     <!--timeline-->
-    <? $this->results->timelineArray(); ?>
-    <!--script>alert(data);</script-->
+    <?
+    $results = $this->results->getResults();
+    $pubYearArray = [];
+    foreach ($results as $rdfDriver) {
+        array_push($pubYearArray, $rdfDriver->getPublicationYear());
+    }
+    $this->results->timelineArray($pubYearArray);
+    ?>
+
     <link href="../themes/linkedswissbib/js/vendor/flot/examples/examples.css" rel="stylesheet" type="text/css">
     <script language="JavaScript" type="text/javascript" src="../themes/linkedswissbib/js/vendor/flot/jquery.flot.js"></script>
     <script language="JavaScript" type="text/javascript" src="../themes/linkedswissbib/js/vendor/flot/jquery.flot.categories.js"></script>
     <script language="javascript" type="text/javascript" src="../themes/linkedswissbib/js/vendor/flot/jquery.flot.resize.js"></script>
     <script language="javascript" type="text/javascript" src="../themes/linkedswissbib/js/vendor/flot/timeline.js"></script>
 
-    <!--? $this->results->timelineArray(); ?> -->
-
-    <!--script>
-        var array = [['2000', 150],['2001', 200], ['2002', 300], ['2004', 500],['2005', 100]];
-        alert("Zuerst ist data: " + data);
-        data.push(array);
-        alert("Danach ist data: " + data);
-    </script-->
-
+    
     <div id="timeline" style="width:100%; height:200px;"></div>
 
         <div id="personWorks">

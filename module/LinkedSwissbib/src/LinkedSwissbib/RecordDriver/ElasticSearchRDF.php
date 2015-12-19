@@ -159,6 +159,12 @@ class ElasticSearchRDF extends AbstractBase {
         return $this->fields['_source']['rdau:publicationStatement'];
     }
 
+    //for timeline
+    public function getPublicationYear()
+    {
+        return $this->fields['_source']['dct:issued'];
+    }
+
     public function getFormat()
     {
         return $this->fields['_source']['dc:format'];
