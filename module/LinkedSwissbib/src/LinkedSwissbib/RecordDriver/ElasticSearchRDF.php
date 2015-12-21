@@ -175,6 +175,11 @@ class ElasticSearchRDF extends AbstractBase {
         return $this->fields['_source']['dct:title'];
     }
 
+    public function getContributor()
+    {
+        return $this->fields['_source']['dct:contributor']["@id"];
+    }
+
     public function getYear()
     {
         return $this->fields['_source']['dct:issued'];

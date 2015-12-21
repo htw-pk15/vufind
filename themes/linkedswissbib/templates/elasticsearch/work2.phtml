@@ -16,7 +16,7 @@ Hello
         Jahr: <?
         $results = $this->results->getResults();
         foreach ($results as $rdfDriver):
-            $title = preg_replace(['/</','/>/'], ['&lt;','&gt;'], $rdfDriver->getYear());endforeach;
+            $title = preg_replace(['/</','/>/'], ['&lt;','&gt;'], $rdfDriver->getContributor());endforeach;
         ?><?echo $title?>
         <br>
         <br>
