@@ -28,7 +28,7 @@
                     $results = $this->results->getResults();
                     foreach ($results as $rdfDriver):
                     $title = preg_replace(['/</','/>/'], ['&lt;','&gt;'], $rdfDriver->getTitle());endforeach;
-                    ?><?echo $title?>
+                    ?><?echo $title[0]?>
                 </h2>
             </div>
             <table>
@@ -39,7 +39,7 @@
                     <tr><th>Themen, Schlagwörter</th></tr>
                 </thead>
                 <tbody>
-                    <tr><td>blablaaaaaaa</td></tr>
+                    <tr><td>blabla</td></tr>
                     <tr><td>blabla</td></tr>
                     <tr><td>blabla/ blabla:</td></tr>
                     <tr><td>blabla, blabla</td></tr>
@@ -181,6 +181,7 @@
                         $title =  preg_replace(['/</','/>/'], ['&lt;','&gt;'], $rdfDriver->getTitle());
                         /* $title = $title;
                         $subtitle = "the writer";*/
+                        $instance = preg_replace(['/</','/>/'], ['&lt;','&gt;'], $rdfDriver->getInstance());
                         $author = preg_replace(['/</','/>/'], ['&lt;','&gt;'], $rdfDriver->getName());
                         $year = preg_replace(['/</','/>/'], ['&lt;','&gt;'], $rdfDriver->getYear());
                         $format = "Buch";
@@ -194,7 +195,7 @@
                             <div id="resultView">
                                 <img src=<?echo $coverImage?> alt="Goethe">
                                 <div class="tabContentBibliographic">
-                                    <h4><?echo $title?></h4>
+                                    <h4><? echo $instance?></h4>
                                     <p>
                                         <?echo $subtitle?><br />
                                         <b>Verfasser/Beitragende:&nbsp;</b><? echo $author ?><br />

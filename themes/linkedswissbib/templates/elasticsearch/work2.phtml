@@ -10,14 +10,14 @@ Hello
                 $results = $this->results->getResults();
                 foreach ($results as $rdfDriver):
                     $title = preg_replace(['/</','/>/'], ['&lt;','&gt;'], $rdfDriver->getTitle());endforeach;
-                ?><?echo $title?>
+                ?><?echo $title[0]?>
             </h2>
         </div>
         Jahr: <?
         $results = $this->results->getResults();
         foreach ($results as $rdfDriver):
             $title = preg_replace(['/</','/>/'], ['&lt;','&gt;'], $rdfDriver->getContributor());endforeach;
-        ?><?echo $title?>
+        ?><?echo $title[0][0]?>
         <br>
         <br>
         <p>

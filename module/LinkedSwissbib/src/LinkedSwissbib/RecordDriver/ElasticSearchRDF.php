@@ -142,6 +142,18 @@ class ElasticSearchRDF extends AbstractBase {
         return $name;
     }
 
+    public function getInstance()
+    {
+        if (isset($this->fields['_source']['bf:hasInstance']['@id'])) {
+            $array = $this->fields['_source']['bf:hasInstance']['@id'];
+            foreach ($array as $key => $item) {
+                if ($key == '@id') {
+                    $instance = $item;
+                }
+            }
+            return $instance;
+        }
+    }
 
 
 /*    public function getFirstNameResources()
@@ -177,7 +189,7 @@ class ElasticSearchRDF extends AbstractBase {
 
     public function getContributor()
     {
-        return $this->fields['_source']['dct:contributor']["@id"];
+        return $this->fields['_source']['dct:contributor'];
     }
 
     public function getYear()
