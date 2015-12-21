@@ -65,37 +65,34 @@ class Results extends BaseResults
         $this->results = $collection->getRecords();
     }
 
-    //Function that returns array for timeline
-    public function timelineArray()
+    /*Function that returns array required for timeline as a multiple
+    indexed array; the parameter $yearArray is an array of all the fields
+    "dct:issued" in the result list. It is created and transmitted in
+    authordetails.phtml */
+
+    public function timelineArray($yearArray)
     {
-        /*$array = array(
-            array('2000', 150),
-            array('2001', 200),
-            array('2002', 300),
-            array('2004', 500),
-            array('2005', 100)
-        );*/
-
-        $array = "[['2000', 150],['2001', 200], ['2002', 300], ['2004', 500],['2005', 100]]";
-
-        /*$arrayLength = count($array);
-        $jsString = "<script>var data = [";
-        for ($row = 0; $row < $arrayLength; $row++) {
-            $jsString .= "[" . $array[$row];
-            //for ($col = 0; $col < 2; $col++) {
-            if ($row == $arrayLength-1) {
-                $jsString .= $array[$row][0] . ", " . $array[$row][1] . "]";
+        $sortArray = sort($yearArray); //sorts the array in ascending order
+        $timelineArrayAssoc = array_count_values($yearArray);
+        /* creates an associative array with publication years as keys and number of
+        publications as values */
+        $timelineData = [];
+        foreach($timelineArrayAssoc as $year => $pubNumber) {
+            array_push($timelineData, [$year, $pubNumber]);
+        }
+        $timelineString = "[";
+        $timelineLength = count($timelineData);
+        for ($i = 0; $i < $timelineLength; $i++) {
+            if ($i == $timelineLength - 1) {
+                $timelineString .= "[" . $timelineData[$i][0] .
+                    "," . $timelineData[$i][1] . "]]";
             }
             else {
-                $jsString .= $array[$row][0] . ", " . $array[$row][1] . "],";
+                $timelineString .= "[" . $timelineData[$i][0] .
+                    "," . $timelineData[$i][1] . "],";
             }
         }
-        $jsString .= "];</script>";
-        return $jsString;*/
-
-        //return  "<script>data.push(" . $array . ");</script>";
-        echo "<script>var data = " . $array . ";</script>";
-
+        echo "<script>var data = " . $timelineString . ";</script>";
     }
 
 
