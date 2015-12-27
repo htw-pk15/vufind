@@ -90,75 +90,87 @@
         </div>
     </div>
 
-
-
     <div id="sidebar">
-        <div id="workSidebarContent">
-            <h4>Dieses Werk in externen Katalogen:</h4> <!-- Inhalt noch von authordetails! -->
-            <ul>
-                <li class="externalLink">
-                    <a rel="external" href="http://data.bnf.fr/11905269" target="_blank">
-                        <i class="externalIcon">
-                            <img class="externalLink" alt="" src="http://www.bnf.fr/bnf_dev/icono/favicon.ico">
-                        </i>
-                        <span class ="externalLink">Bibliothèque nationale de France (Frankreich)</span>
-                    </a>
-                </li>
-                <li class="externalLink">
-                    <a rel="external" href="http://id.loc.gov/authorities/names/n79003362" target="_blank">
-                        <i class="externalIcon">
-                            <img class="externalLink" alt="" src="http://www.loc.gov/favicon.ico">
-                        </i>
-                        <span class ="externalLink">Library of Congress (USA)</span>
-                    </a>
-                </li>
-                <li class="externalLink">
-                    <a rel="external" href="https://www.deutsche-digitale-bibliothek.de/entity/118540238" target="_blank">
-                        <i class="dummyIcon">
-                            <img class="externalLink" alt="" src="../themes/linkedswissbib/images/dummyIcon.jpg">
-                        </i>
-                        <span class ="externalLink">Deutsche Digitale Bibliothek (Deutschland)</span>
-                    </a>
-                </li>
-            </ul>
+        <div id="accordion" class="panel-group" role="tablist" aria-multiselectable="true">
+            <div class="panel-title">
+                <a  aria-expanded="false" href="#sideListCat" data-toggle="collapse">
+                    <h4>Dieses Werk in externen Katalogen:</h4>
+                </a>
+            </div>
+            <div aria-labelledby="heading-details" role="tabpanel" class="panel-collapse collapse" level="1" id="sideListCat">
+                <ul>
+                    <li class="externalLink">
+                        <a rel="external" href="http://data.bnf.fr/11905269" target="_blank">
+                            <i class="externalIcon">
+                                <img class="externalLink" alt="" src="http://www.bnf.fr/bnf_dev/icono/favicon.ico">
+                            </i>
+                            <span class ="externalLink">Bibliothèque nationale de France (Frankreich)</span>
+                        </a>
+                    </li>
+                    <li class="externalLink">
+                        <a rel="external" href="http://id.loc.gov/authorities/names/n79003362" target="_blank">
+                            <i class="externalIcon">
+                                <img class="externalLink" alt="" src="http://www.loc.gov/favicon.ico">
+                            </i>
+                            <span class ="externalLink">Library of Congress (USA)</span>
+                        </a>
+                    </li>
+                    <li class="externalLink">
+                        <a rel="external" href="https://www.deutsche-digitale-bibliothek.de/entity/118540238" target="_blank">
+                            <i class="dummyIcon">
+                                <img class="externalLink" alt="" src="../themes/linkedswissbib/images/dummyIcon.jpg">
+                            </i>
+                            <span class ="externalLink">Deutsche Digitale Bibliothek (Deutschland)</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
             <p>&nbsp;</p>
-            <h4>Dieses Werk in:</h4>
-            <ul>
-                <li class="externalLink">
-                    <a rel="external" href="http://de.wikipedia.org/wiki/Johann_Wolfgang_von_Goethe" target="_blank">
-                        <i class="externalIcon">
-                            <img class="externalLink" alt="" src="http://de.wikipedia.org/favicon.ico">
-                        </i>
-                        <span class ="externalLink">Wikipedia (Deutsch)</span>
-                    </a>
-                </li>
-                <li class="externalLink">
-                    <a rel="external" href="http://de.wikisource.org/wiki/Johann_Wolfgang_von_Goethe" target="_blank">
-                        <i class="externalIcon">
-                            <img class="externalLink" alt="" src="http://wikisource.org/favicon.ico">
-                        </i>
-                        <span class ="externalLink">Wikisource</span>
-                    </a>
-                </li>
-                <li class="externalLink">
-                    <a rel="external" href="http://viaf.org/viaf/24602065" target="_blank">
-                        <i class="externalIcon">
-                            <img class="externalLink" alt="" src="http://viaf.org/viaf/images/viaf.ico">
-                        </i>
-                        <span class ="externalLink">VIAF - Virtual International Authority File</span>
-                    </a>
-                </li>
-                <li class="externalLink">
-                    <a rel="external" href="http://www.hls-dhs-dss.ch/textes/d/D11638.php" target="_blank">
-                        <i class="externalIcon">
-                            <img class="externalLink" alt="" src="http://www.hls-dhs-dss.ch/favicon.ico">
-                        </i>
-                        <span class ="externalLink">Historisches Lexikon der Schweiz (HLS)</span>
-                    </a>
-                </li>
-            </ul>
+
+            <div class="panel-title">
+                <a  aria-expanded="false" href="#sideListOther" data-toggle="collapse">
+                    <h4>Dieses Werk in:</h4>
+                </a>
+            </div>
+
+            <div aria-labelledby="heading-details" role="tabpanel" class="panel-collapse collapse" level="1" id="sideListOther">
+                <ul>
+                    <li class="externalLink">
+                        <a rel="external" href="http://de.wikipedia.org/wiki/Johann_Wolfgang_von_Goethe" target="_blank">
+                            <i class="externalIcon">
+                                <img class="externalLink" alt="" src="http://de.wikipedia.org/favicon.ico">
+                            </i>
+                            <span class ="externalLink">Wikipedia (Deutsch)</span>
+                        </a>
+                    </li>
+                    <li class="externalLink">
+                        <a rel="external" href="http://de.wikisource.org/wiki/Johann_Wolfgang_von_Goethe" target="_blank">
+                            <i class="externalIcon">
+                                <img class="externalLink" alt="" src="http://wikisource.org/favicon.ico">
+                            </i>
+                            <span class ="externalLink">Wikisource</span>
+                        </a>
+                    </li>
+                    <li class="externalLink">
+                        <a rel="external" href="http://viaf.org/viaf/24602065" target="_blank">
+                            <i class="externalIcon">
+                                <img class="externalLink" alt="" src="http://viaf.org/viaf/images/viaf.ico">
+                            </i>
+                            <span class ="externalLink">VIAF - Virtual International Authority File</span>
+                        </a>
+                    </li>
+                    <li class="externalLink">
+                        <a rel="external" href="http://www.hls-dhs-dss.ch/textes/d/D11638.php" target="_blank">
+                            <i class="externalIcon">
+                                <img class="externalLink" alt="" src="http://www.hls-dhs-dss.ch/favicon.ico">
+                            </i>
+                            <span class ="externalLink">Historisches Lexikon der Schweiz (HLS)</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </div>
-        <!-- end persondSidebarContent -->
     </div>
     <!-- end personSidebar -->
 
