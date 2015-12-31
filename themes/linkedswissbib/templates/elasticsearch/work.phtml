@@ -4,23 +4,15 @@
     <div id="jumpTo">
         <p>
             <b>Springe zu:  </b>
-            <a href="#personWorks">Werke</a>
+            <a href="#works">Werke</a>
             |
-            <a href="#personWorkTypes">Werke als...</a>
-            |
-            <a href="#personCarousel">Werke von Zeitgenossen</a>
-            |
-            <a href="#personTags">Verwandte Themen</a>
-            |
-            <a href="#personGalleries1">Autoren mit ähnlichen Themen</a>
-            |
-            <a href="#personGalleries2">Autoren und Beitragende gemeinsamer Werke</a>
+            <a href="#gallerie">Gallerie</a>
         </p>
     </div>
 
     <div id="workWrapper">
         <div id="workImage">
-            <img alt="Der Bibliothekar" src="../themes/linkedswissbib/images/JudithKuckart_DerBibliothekar.jpg">
+            <img alt="Faust" src="../themes/linkedswissbib/images/dummyIcon.jpg">
         </div>
         <div id="workDescription">
             <div id="resultView">
@@ -39,10 +31,10 @@
                     <tr><th>Themen, Schlagwörter</th></tr>
                 </thead>
                 <tbody>
-                    <tr><td>blabla</td></tr>
-                    <tr><td>blabla</td></tr>
-                    <tr><td>blabla/ blabla:</td></tr>
-                    <tr><td>blabla, blabla</td></tr>
+                    <tr><td>Johann Wolfgang von Goethe</td></tr>
+                    <tr><td>1808</td></tr>
+                    <tr><td>Literatur, Drama</td></tr>
+                    <tr><td>Faustdichtung; Deutschland</td></tr>
                 </tbody>
             </table>
             </p>
@@ -59,21 +51,19 @@
                         <div aria-labelledby="heading-details" role="tabpanel" class="panel-collapse collapse" level="1" id="collapse-details">
                             <div class="list-group">
                                 <div id="personDetailsLabel">Zusammenfassung:</div>
-                                <div id="personDetails">Johann Wolfgang von Goethe (* 28. August 1749 in Frankfurt am Main als Johann Wolfgang Goethe; † 22. März 1832 in Weimar), geadelt 1782, gilt als einer der bedeutendsten Repräsentanten deutschsprachiger Dichtung. Goethe stammte aus einer angesehenen bürgerlichen Familie; sein Grossvater mütterlicherseits war als Stadtschultheiss höchster Beamter der Stadt Frankfurt, sein Vater Doktor der Rechte und kaiserlicher Rat. Er und seine Schwester Cornelia erfuhren eine aufwendige Ausbildung durch Hauslehrer. Dem Wunsch seines Vaters folgend studierte Goethe in Strassburg und Leipzig Rechtswissenschaft und war danach als Advokat in Wetzlar und Frankfurt tätig. Gleichzeitig drängten ihn Talent und Neigung zur Dichtkunst, die ihm mit dem Drama Götz von Berlichingen einen frühen Erfolg und Anerkennung in der literarischen Welt zuteilwerden liess.</div>
+                                <div id="personDetails">Im Allgemeinen wird „Faust I“ als Verbindung der „Tragödie des Gelehrten Faust“ mit der „Gretchentragödie“ betrachtet.
+
+                                    <br>Heinrich Faust, wie sein historisches Vorbild Johann Georg Faust (ca. 1480–1538) ein nicht mehr junger,
+                                        angesehener Forscher und Lehrer zu Beginn der Neuzeit, zieht eine selbstkritische Lebensbilanz.
+                                        Er ist beruflich und privat durch und durch unzufrieden: Als Wissenschaftler fehle es ihm an tiefer Einsicht und
+                                        brauchbaren Ergebnissen und als Mensch sei er unfähig, das Leben in seiner Fülle zu genießen.
+                                        Tief deprimiert und lebensmüde geworden, verspricht er dem Teufel Mephisto seine Seele, wenn es diesem gelingen sollte,
+                                        Faust von seiner Unzufriedenheit zu befreien und für stetige Abwechslung zu sorgen.</div>
                                 <div id="personMoreDetails">Drama, Deutsche Literatur, Schauspiel, Gedichte</div>
                                 <div id="personMoreLabels">Gattung:</div>
-                                <div id="personMoreDetails">wilhelminische Ära, Romantik, Aufklärung</div>
+                                <div id="personMoreDetails">Faust <br> Faust, der Tragödie erster Teil <br> Permier Faust</div>
                                 <div id="personMoreLabels">Titelvarianten:</div>
-                                <div id="personMoreDetails">
-                                    Elisabeth Goethe (Mutter)
-                                    <br>
-                                    Friedel Knolle (berufliche Beziehung)
-                                    <br>
-                                    Rolf Alpers (berufliche Beziehung)
-                                    <br>
-                                    Hermann Heinzel (berufliche Beziehung)
-                                    <br>
-                                </div>
+                                <div id="personMoreDetails">Johann Wolfgang von Goethe (1749-1832)</div>
                                 <div id="personMoreLabels">Personenseiten:</div>
                                 <div id="personMoreDetails">
                                     VIAF - Virtual International Authority File
@@ -177,7 +167,7 @@
     <!-- Werk mit Details -->
 
     <div id="works">
-        <h4>Werke</h4>
+        <h4 id="works">Werke</h4>
         <div id="tabs">
             <ul class="recordTabs nav nav-tabs">
                 <li><a href="#tabs-1">Versionen dieses Werks</a></li>
@@ -436,7 +426,7 @@
     <!-- Timeline -->
 
     <div id="carousel"> <!-- von authordetails -->
-        <h4>Gallerie</h4>
+        <h4 id="gallerie">Gallerie</h4>
 
         <div data-ride="carousel" class="carousel slide" id="similar-items-carousel">
 
