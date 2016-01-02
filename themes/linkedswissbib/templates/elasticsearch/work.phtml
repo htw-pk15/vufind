@@ -82,11 +82,13 @@
 
     <div id="sidebar">
         <div id="accordion" class="panel-group" role="tablist" aria-multiselectable="true">
-            <div class="panel-title">
-                <a  aria-expanded="false" href="#sideListCat" data-toggle="collapse">
-                    <h4>Dieses Werk in externen Katalogen:</h4>
-                </a>
-            </div>
+            <div id="holdings-details" class="panel panel-default">
+                <div id="heading-details" class="panel-heading" role="tab">
+                    <div class="panel-title">
+                        <a  aria-expanded="false" href="#sideListCat" data-toggle="collapse">
+                            <span class="accordion">Dieses Werk in externen Katalogen:</span>
+                        </a>
+                    </div>
             <div aria-labelledby="heading-details" role="tabpanel" class="panel-collapse collapse" level="1" id="sideListCat">
                 <ul>
                     <li class="externalLink">
@@ -120,45 +122,47 @@
 
             <div class="panel-title">
                 <a  aria-expanded="false" href="#sideListOther" data-toggle="collapse">
-                    <h4>Dieses Werk in:</h4>
+                    <span class="accordion">Dieses Werk in:</span>
                 </a>
             </div>
 
-            <div aria-labelledby="heading-details" role="tabpanel" class="panel-collapse collapse" level="1" id="sideListOther">
-                <ul>
-                    <li class="externalLink">
-                        <a rel="external" href="http://de.wikipedia.org/wiki/Johann_Wolfgang_von_Goethe" target="_blank">
-                            <i class="externalIcon">
-                                <img class="externalLink" alt="" src="http://de.wikipedia.org/favicon.ico">
-                            </i>
-                            <span class ="externalLink">Wikipedia (Deutsch)</span>
-                        </a>
-                    </li>
-                    <li class="externalLink">
-                        <a rel="external" href="http://de.wikisource.org/wiki/Johann_Wolfgang_von_Goethe" target="_blank">
-                            <i class="externalIcon">
-                                <img class="externalLink" alt="" src="http://wikisource.org/favicon.ico">
-                            </i>
-                            <span class ="externalLink">Wikisource</span>
-                        </a>
-                    </li>
-                    <li class="externalLink">
-                        <a rel="external" href="http://viaf.org/viaf/24602065" target="_blank">
-                            <i class="externalIcon">
-                                <img class="externalLink" alt="" src="http://viaf.org/viaf/images/viaf.ico">
-                            </i>
-                            <span class ="externalLink">VIAF - Virtual International Authority File</span>
-                        </a>
-                    </li>
-                    <li class="externalLink">
-                        <a rel="external" href="http://www.hls-dhs-dss.ch/textes/d/D11638.php" target="_blank">
-                            <i class="externalIcon">
-                                <img class="externalLink" alt="" src="http://www.hls-dhs-dss.ch/favicon.ico">
-                            </i>
-                            <span class ="externalLink">Historisches Lexikon der Schweiz (HLS)</span>
-                        </a>
-                    </li>
-                </ul>
+                    <div aria-labelledby="heading-details" role="tabpanel" class="panel-collapse collapse" level="1" id="sideListOther">
+                        <ul>
+                            <li class="externalLink">
+                                <a rel="external" href="http://de.wikipedia.org/wiki/Johann_Wolfgang_von_Goethe" target="_blank">
+                                    <i class="externalIcon">
+                                        <img class="externalLink" alt="" src="http://de.wikipedia.org/favicon.ico">
+                                    </i>
+                                    <span class ="externalLink">Wikipedia (Deutsch)</span>
+                                </a>
+                            </li>
+                            <li class="externalLink">
+                                <a rel="external" href="http://de.wikisource.org/wiki/Johann_Wolfgang_von_Goethe" target="_blank">
+                                    <i class="externalIcon">
+                                        <img class="externalLink" alt="" src="http://wikisource.org/favicon.ico">
+                                    </i>
+                                    <span class ="externalLink">Wikisource</span>
+                                </a>
+                            </li>
+                            <li class="externalLink">
+                                <a rel="external" href="http://viaf.org/viaf/24602065" target="_blank">
+                                    <i class="externalIcon">
+                                        <img class="externalLink" alt="" src="http://viaf.org/viaf/images/viaf.ico">
+                                    </i>
+                                    <span class ="externalLink">VIAF - Virtual International Authority File</span>
+                                </a>
+                            </li>
+                            <li class="externalLink">
+                                <a rel="external" href="http://www.hls-dhs-dss.ch/textes/d/D11638.php" target="_blank">
+                                    <i class="externalIcon">
+                                        <img class="externalLink" alt="" src="http://www.hls-dhs-dss.ch/favicon.ico">
+                                    </i>
+                                    <span class ="externalLink">Historisches Lexikon der Schweiz (HLS)</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
