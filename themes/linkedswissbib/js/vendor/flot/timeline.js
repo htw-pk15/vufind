@@ -170,10 +170,11 @@ $(function() {
             for (k = 0; k < change.length; k++) {
                 // Falls der Balken angeklickt wird
                 if (i === change[k]) {
-                    colors[i] = "#2EFEF7";
+                    colors[i] = "#63B59F";
+                    //colors[i] = "#2EFEF7";
                 }
                 // Variante, damit Balken, die bereits eine helle Farbe haben nicht wieder dunkel werden
-                else if (colors[i] == "#2EFEF7") {
+                else if (colors[i] == "#63B59F") {
                     continue
                 }
                 // Balken, die noch nicht angeklickt bleiben dunkel
