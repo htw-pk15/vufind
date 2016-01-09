@@ -84,12 +84,12 @@ class Results extends BaseResults
         $timelineLength = count($timelineData);
         for ($i = 0; $i < $timelineLength; $i++) {
             if ($i == $timelineLength - 1) {
-                $timelineString .= "[" . $timelineData[$i][0] .
-                    "," . $timelineData[$i][1] . "]]";
+                $timelineString .= "{data:[[" . $timelineData[$i][0] .
+                    "," . $timelineData[$i][1] . "]]}]";
             }
             else {
-                $timelineString .= "[" . $timelineData[$i][0] .
-                    "," . $timelineData[$i][1] . "],";
+                $timelineString .= "{data:[[" . $timelineData[$i][0] .
+                    "," . $timelineData[$i][1] . "]]},";
             }
         }
         echo "<script>var data = " . $timelineString . ";</script>";
