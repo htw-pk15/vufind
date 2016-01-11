@@ -23,19 +23,27 @@
                     ?><?echo $title[0]?>
                 </h2>
             </div>
-            <table>
-                <thead>
-                    <tr><th>Verfasser/ Beitragende</th></tr>
-                    <tr><th>Jahr</th></tr>
-                    <tr><th>Form/ Gattung:</th></tr>
-                    <tr><th>Themen, Schlagwörter</th></tr>
-                </thead>
-                <tbody>
-                    <tr><td>Johann Wolfgang von Goethe</td></tr>
-                    <tr><td>1808</td></tr>
-                    <tr><td>Literatur, Drama</td></tr>
-                    <tr><td>Faustdichtung; Deutschland</td></tr>
-                </tbody>
+            <table border="0" width="400">
+                <tr>
+                    <td width="50%"><b>Verfasser/ Beitragende:  </b></td>
+                    <!-- Der Verfasser/ Beitragende muss schlussendlich aus einer BibliographicResource geholt werden -->
+                    <td width="75%"> Johann Wolfgang von Goethe</td>
+                </tr>
+                <tr>
+                    <td width="50%"><b>Jahr:  </b></td>
+                    <!-- Das Jahr muss schlussendlich aus einer BibliographicResource geholt werden -->
+                    <td width="75%"> 1808</td>
+                </tr>
+                <tr>
+                    <td width="50%"><b>Form/ Gattung:  </b></td>
+                    <!-- Die Farm/ Gattung muss schlussendlich aus einer BibliographicResource geholt werden -->
+                    <td width="75%"> Literatur, Drama</td>
+                </tr>
+                <tr>
+                    <td width="50%"><b>Themen, Schlagwörter:  </b></td>
+                    <!-- Die Themen, Schlagwörter muss schlussendlich aus einer BibliographicResource oder ähnliches geholt werden -->
+                    <td width="75%"> Faustdichtung; Deutschland</td>
+                </tr>
             </table>
             </p>
             <div id="accordion">
@@ -48,6 +56,7 @@
                                 </a>
                             </h3>
                         </div>
+                        <!-- Alles innerhalb von personMoreDetails muss schlussendlich aus Wikipedia oder ähnlichem geholt werden -->
                         <div aria-labelledby="heading-details" role="tabpanel" class="panel-collapse collapse" level="1" id="collapse-details">
                             <div class="list-group">
                                 <div id="personDetailsLabel">Zusammenfassung:</div>
@@ -181,7 +190,9 @@
 
             <div id="tabs-1">
                 <div class="tabContent">
+                    <!-- All diese Funktionen müssen über den Suchtyp Bibliographic Resources aufgerufen werden -->
                     <?
+                    $i = 0;
                     $results = $this->results->getResults();
                     foreach ($results as $rdfDriver):
                         $title =  preg_replace(['/</','/>/'], ['&lt;','&gt;'], $rdfDriver->getTitle());
@@ -195,13 +206,15 @@
                         $numberOfInstitutions = "2 Bibliotheken";
                         $holdingInstitution = "ETH Zürich - Bibliothek HDB";
                         $linkToHoldings = "#";
+                        $i++;
 
                         {
                             ?>
+
                             <div id="resultView">
                                 <img src=<?echo $coverImage?> alt="Goethe">
                                 <div class="tabContentBibliographic">
-                                    <h4><? echo $instance?></h4>
+                                    <h4><? echo $title[$i]?></h4>
                                     <p>
                                         <?echo $subtitle?><br />
                                         <b>Verfasser/Beitragende:&nbsp;</b><? echo $author ?><br />
