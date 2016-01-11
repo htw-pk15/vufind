@@ -22,6 +22,7 @@ AllFields:
           fields:
             - dct:title
             - rdau:publicationStatement
+            - dct:issued
             - @type
             - dct:contributor.@id
             - rdau:noteOnResource
